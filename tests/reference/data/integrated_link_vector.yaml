@@ -1,0 +1,43 @@
+schema_version: "1.0"
+vector_id: RV-LINK-CHAIN-001
+approval:
+  reviewer: Abdelrahman Elsayed
+  date: 2026-08-14
+source:
+  link_budget: docs/models/model-fidelity-contract.md section 4
+  noise_assumption: thermal-noise-minus174-v1
+  resource_bandwidth: TS 38.104 V18.12.0 Table 5.3.2-1 and TS 38.211 V18.9.0 clause 4.4.4.1
+independence: >-
+  Expected values were evaluated with tests/reference/independent_link_oracle.py using
+  50-digit Decimal arithmetic; that module imports no nr_ran_sim production package.
+inputs:
+  transmission_bandwidth_hz: 98280000
+  subcarrier_spacing_hz: 30000
+  receiver_noise_figure_db: "7"
+  receiver_gain_dbi: "0"
+  penetration_loss_db: "1"
+  shadow_fading_db: "2"
+  miscellaneous_loss_db: "1"
+  links:
+    - cell_id: cell/serving
+      transmit_power_dbm: "46"
+      transmitter_gain_dbi: "15"
+      basic_path_loss_db: "130"
+    - cell_id: cell/interferer-a
+      transmit_power_dbm: "30"
+      transmitter_gain_dbi: "15"
+      basic_path_loss_db: "130"
+    - cell_id: cell/interferer-b
+      transmit_power_dbm: "28"
+      transmitter_gain_dbi: "15"
+      basic_path_loss_db: "130"
+expected:
+  serving_received_power_dbm: "-73"
+  noise_power_dbm: "-87.075348521919566977687170842507033945499320597927"
+  interference_power_w: "2.0532536465184487124898723892321885386825780412218E-12"
+  interference_power_dbm: "-86.87557397205660300596530212919926809276214803532"
+  sinr_linear: "12.485365752710819542141959613966833131749899039384"
+  sinr_db: "10.964012693191160984633130200092076232932863683179"
+tolerances:
+  db_absolute: 1.0e-9
+  linear_relative: 1.0e-12

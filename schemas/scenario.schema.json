@@ -1,0 +1,838 @@
+{
+  "$defs": {
+    "BoundedUniformSource": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_interarrival": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "minimum_interarrival": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "type": {
+          "const": "bounded_uniform",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "minimum_interarrival",
+        "maximum_interarrival"
+      ],
+      "title": "BoundedUniformSource",
+      "type": "object"
+    },
+    "CellConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "antenna_gain": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "miscellaneous_loss": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "position": {
+          "$ref": "#/$defs/PositionConfig"
+        },
+        "transmit_power": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "position",
+        "transmit_power",
+        "antenna_gain",
+        "miscellaneous_loss"
+      ],
+      "title": "CellConfig",
+      "type": "object"
+    },
+    "ConstantPacketSize": {
+      "additionalProperties": false,
+      "properties": {
+        "payload": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "type": {
+          "const": "constant",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "payload"
+      ],
+      "title": "ConstantPacketSize",
+      "type": "object"
+    },
+    "ExplicitPlacement": {
+      "additionalProperties": false,
+      "properties": {
+        "minimum_2d_distance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mode": {
+          "const": "explicit",
+          "title": "Mode",
+          "type": "string"
+        },
+        "positions": {
+          "items": {
+            "$ref": "#/$defs/PositionConfig"
+          },
+          "minItems": 1,
+          "title": "Positions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "mode",
+        "positions"
+      ],
+      "title": "ExplicitPlacement",
+      "type": "object"
+    },
+    "ModelConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "fidelity_profile": {
+          "enum": [
+            "tier-a-fr1-static-v1",
+            "tier-b-fr1-dynamic-v1",
+            "tier-b-fr2-availability-v1"
+          ],
+          "title": "Fidelity Profile",
+          "type": "string"
+        },
+        "interference": {
+          "enum": [
+            "noise_limited-v1",
+            "full_buffer_reuse1-v1",
+            "activity-coupled-reuse1-v1"
+          ],
+          "title": "Interference",
+          "type": "string"
+        },
+        "link_adaptation": {
+          "const": "analytical-awgn-gap-v1",
+          "title": "Link Adaptation",
+          "type": "string"
+        },
+        "los_state": {
+          "enum": [
+            "explicit",
+            "probability_static"
+          ],
+          "title": "Los State",
+          "type": "string"
+        },
+        "propagation": {
+          "const": "3gpp-tr38901-r18-v18.1.0",
+          "title": "Propagation",
+          "type": "string"
+        },
+        "shadowing": {
+          "enum": [
+            "off",
+            "independent_static",
+            "correlated_dynamic"
+          ],
+          "title": "Shadowing",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fidelity_profile",
+        "propagation",
+        "los_state",
+        "shadowing",
+        "interference",
+        "link_adaptation"
+      ],
+      "title": "ModelConfig",
+      "type": "object"
+    },
+    "PeriodicSource": {
+      "additionalProperties": false,
+      "properties": {
+        "initial_offset": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "interval": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "type": {
+          "const": "periodic",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "interval"
+      ],
+      "title": "PeriodicSource",
+      "type": "object"
+    },
+    "PoissonSource": {
+      "additionalProperties": false,
+      "properties": {
+        "mean_interarrival": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "type": {
+          "const": "poisson",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "mean_interarrival"
+      ],
+      "title": "PoissonSource",
+      "type": "object"
+    },
+    "PositionConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "z": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "title": "PositionConfig",
+      "type": "object"
+    },
+    "PropagationEnvironmentConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "average_building_height": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "average_street_width": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "average_building_height",
+        "average_street_width"
+      ],
+      "title": "PropagationEnvironmentConfig",
+      "type": "object"
+    },
+    "QuantityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "QuantityInput",
+      "type": "object"
+    },
+    "QueueConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "max_packets": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Packets"
+        },
+        "max_payload": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "QueueConfig",
+      "type": "object"
+    },
+    "RadioConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "carrier_frequency": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "channel_bandwidth": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "cqi_table": {
+          "const": "table1",
+          "title": "Cqi Table",
+          "type": "string"
+        },
+        "cyclic_prefix": {
+          "const": "normal",
+          "title": "Cyclic Prefix",
+          "type": "string"
+        },
+        "data_re_overhead_fraction": {
+          "anyOf": [
+            {
+              "exclusiveMaximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Data Re Overhead Fraction"
+        },
+        "direction": {
+          "const": "downlink",
+          "title": "Direction",
+          "type": "string"
+        },
+        "frequency_range": {
+          "enum": [
+            "FR1",
+            "FR2-1"
+          ],
+          "title": "Frequency Range",
+          "type": "string"
+        },
+        "implementation_margin": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "layers": {
+          "const": 1,
+          "title": "Layers",
+          "type": "integer"
+        },
+        "mcs_table": {
+          "const": "table1",
+          "title": "Mcs Table",
+          "type": "string"
+        },
+        "subcarrier_spacing": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "target_bler": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Target Bler"
+        }
+      },
+      "required": [
+        "direction",
+        "frequency_range",
+        "carrier_frequency",
+        "channel_bandwidth",
+        "subcarrier_spacing",
+        "cyclic_prefix",
+        "layers",
+        "cqi_table",
+        "mcs_table",
+        "target_bler",
+        "implementation_margin",
+        "data_re_overhead_fraction"
+      ],
+      "title": "RadioConfig",
+      "type": "object"
+    },
+    "SchedulerConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/SchedulerParameters"
+        },
+        "policy": {
+          "enum": [
+            "round-robin",
+            "max-ci",
+            "proportional-fair"
+          ],
+          "title": "Policy",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy"
+      ],
+      "title": "SchedulerConfig",
+      "type": "object"
+    },
+    "SchedulerParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "averaging_alpha": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 1.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Averaging Alpha"
+        },
+        "initial_rate_floor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "SchedulerParameters",
+      "type": "object"
+    },
+    "SimulationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "drain": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "measurement": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "warmup": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "warmup",
+        "measurement",
+        "drain"
+      ],
+      "title": "SimulationConfig",
+      "type": "object"
+    },
+    "TopologyConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "cells": {
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z][a-z0-9-]{0,63}$": {
+              "$ref": "#/$defs/CellConfig"
+            }
+          },
+          "title": "Cells",
+          "type": "object"
+        },
+        "coordinate_system": {
+          "const": "local-cartesian",
+          "title": "Coordinate System",
+          "type": "string"
+        },
+        "propagation_environment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PropagationEnvironmentConfig"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "scenario": {
+          "enum": [
+            "rma",
+            "uma",
+            "umi_street_canyon"
+          ],
+          "title": "Scenario",
+          "type": "string"
+        },
+        "ue_groups": {
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z][a-z0-9-]{0,63}$": {
+              "$ref": "#/$defs/UEGroupConfig"
+            }
+          },
+          "title": "Ue Groups",
+          "type": "object"
+        }
+      },
+      "required": [
+        "scenario",
+        "coordinate_system",
+        "cells",
+        "ue_groups"
+      ],
+      "title": "TopologyConfig",
+      "type": "object"
+    },
+    "TrafficProfileConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "deadline": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "packet_size": {
+          "discriminator": {
+            "mapping": {
+              "constant": "#/$defs/ConstantPacketSize",
+              "discrete_uniform": "#/$defs/UniformPacketSize"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ConstantPacketSize"
+            },
+            {
+              "$ref": "#/$defs/UniformPacketSize"
+            }
+          ],
+          "title": "Packet Size"
+        },
+        "qos_reference_5qi": {
+          "anyOf": [
+            {
+              "maximum": 255,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Qos Reference 5Qi"
+        },
+        "queue": {
+          "$ref": "#/$defs/QueueConfig"
+        },
+        "source": {
+          "discriminator": {
+            "mapping": {
+              "bounded_uniform": "#/$defs/BoundedUniformSource",
+              "periodic": "#/$defs/PeriodicSource",
+              "poisson": "#/$defs/PoissonSource"
+            },
+            "propertyName": "type"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/PeriodicSource"
+            },
+            {
+              "$ref": "#/$defs/PoissonSource"
+            },
+            {
+              "$ref": "#/$defs/BoundedUniformSource"
+            }
+          ],
+          "title": "Source"
+        }
+      },
+      "required": [
+        "source",
+        "packet_size",
+        "queue",
+        "deadline"
+      ],
+      "title": "TrafficProfileConfig",
+      "type": "object"
+    },
+    "UEGroupConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "antenna_gain": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "bearers": {
+          "items": {
+            "pattern": "^[a-z][a-z0-9-]{0,63}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Bearers",
+          "type": "array"
+        },
+        "count": {
+          "exclusiveMinimum": 0,
+          "title": "Count",
+          "type": "integer"
+        },
+        "explicit_link_states": {
+          "anyOf": [
+            {
+              "patternProperties": {
+                "^[a-z][a-z0-9-]{0,63}$": {
+                  "items": {
+                    "enum": [
+                      "los",
+                      "nlos"
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Explicit Link States"
+        },
+        "penetration_loss": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "placement": {
+          "discriminator": {
+            "mapping": {
+              "explicit": "#/$defs/ExplicitPlacement",
+              "uniform_rectangle": "#/$defs/UniformRectanglePlacement"
+            },
+            "propertyName": "mode"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/UniformRectanglePlacement"
+            },
+            {
+              "$ref": "#/$defs/ExplicitPlacement"
+            }
+          ],
+          "title": "Placement"
+        },
+        "receiver_noise_figure": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "count",
+        "placement",
+        "receiver_noise_figure",
+        "antenna_gain",
+        "bearers"
+      ],
+      "title": "UEGroupConfig",
+      "type": "object"
+    },
+    "UniformPacketSize": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_payload": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "minimum_payload": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "type": {
+          "const": "discrete_uniform",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "minimum_payload",
+        "maximum_payload"
+      ],
+      "title": "UniformPacketSize",
+      "type": "object"
+    },
+    "UniformRectanglePlacement": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_budget": {
+          "default": 10000,
+          "exclusiveMinimum": 0,
+          "title": "Attempt Budget",
+          "type": "integer"
+        },
+        "height": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "minimum_2d_distance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mode": {
+          "const": "uniform_rectangle",
+          "title": "Mode",
+          "type": "string"
+        },
+        "x_max": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "x_min": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y_max": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y_min": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "mode",
+        "x_min",
+        "x_max",
+        "y_min",
+        "y_max",
+        "height"
+      ],
+      "title": "UniformRectanglePlacement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Description",
+      "type": "string"
+    },
+    "extensions": {
+      "additionalProperties": true,
+      "title": "Extensions",
+      "type": "object"
+    },
+    "models": {
+      "$ref": "#/$defs/ModelConfig"
+    },
+    "radio": {
+      "$ref": "#/$defs/RadioConfig"
+    },
+    "scenario_id": {
+      "pattern": "^[a-z][a-z0-9-]{0,63}$",
+      "title": "Scenario Id",
+      "type": "string"
+    },
+    "scheduler": {
+      "$ref": "#/$defs/SchedulerConfig"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "simulation": {
+      "$ref": "#/$defs/SimulationConfig"
+    },
+    "topology": {
+      "$ref": "#/$defs/TopologyConfig"
+    },
+    "traffic_profiles": {
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z][a-z0-9-]{0,63}$": {
+          "$ref": "#/$defs/TrafficProfileConfig"
+        }
+      },
+      "title": "Traffic Profiles",
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scenario_id",
+    "description",
+    "simulation",
+    "radio",
+    "models",
+    "topology",
+    "traffic_profiles",
+    "scheduler"
+  ],
+  "title": "ScenarioConfig",
+  "type": "object"
+}

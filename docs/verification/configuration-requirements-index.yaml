@@ -1,0 +1,95 @@
+schema_version: "1.0"
+capability: configuration-and-validation
+evidence_level: E1
+scope_note: >-
+  This index covers requirements implemented by the configuration and validation layer.
+  Requirements owned by downstream layers remain explicit boundaries in system-requirements.md.
+
+requirements:
+  SYS-004:
+    implementation: [src/nr_ran_sim/config/loader.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_models.py, tests/unit/test_normalize.py]
+  SYS-005:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_models.py]
+  SYS-006:
+    implementation: [src/nr_ran_sim]
+    tests: [tests/integration/test_repository_contract.py]
+  SYS-008:
+    implementation: [src/nr_ran_sim/errors.py, src/nr_ran_sim/observability.py]
+    tests: [tests/unit/test_errors_observability.py]
+  CFG-001:
+    implementation: [src/nr_ran_sim/config/models.py]
+    tests: [tests/unit/test_models.py, tests/integration/test_repository_contract.py]
+  CFG-002:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_models.py, tests/unit/test_normalize.py]
+  CFG-003:
+    implementation: [src/nr_ran_sim/config/models.py]
+    tests: [tests/unit/test_models.py, tests/unit/test_units.py]
+  CFG-004:
+    implementation: [src/nr_ran_sim/config/units.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_units.py, tests/unit/test_normalize.py]
+  CFG-005:
+    implementation: [src/nr_ran_sim/config/units.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_units.py, tests/unit/test_normalize.py]
+  CFG-006:
+    implementation: [src/nr_ran_sim/config/loader.py, src/nr_ran_sim/errors.py]
+    tests: [tests/unit/test_loader_manifest.py, tests/integration/test_cli.py]
+  CFG-007:
+    implementation: [src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  CFG-008:
+    implementation: [src/nr_ran_sim/config/manifest.py]
+    tests: [tests/unit/test_loader_manifest.py]
+  CFG-009:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/config/manifest.py]
+    tests: [tests/unit/test_models.py, tests/unit/test_loader_manifest.py]
+  CFG-010:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  TIME-001:
+    implementation: [src/nr_ran_sim/config/units.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_units.py, tests/unit/test_normalize.py]
+  TIME-003:
+    implementation: [src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  TIME-008:
+    implementation: [src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  LINK-007:
+    implementation: [src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  EXP-002:
+    implementation: [src/nr_ran_sim/experiments/seeds.py]
+    tests: [tests/unit/test_seeds.py]
+  EXP-005:
+    implementation: [src/nr_ran_sim/config/manifest.py]
+    tests: [tests/unit/test_loader_manifest.py]
+  OPS-001:
+    implementation: [.github/workflows/quality.yml]
+    tests: [GitHub Actions Windows/Linux Python matrix]
+  OPS-002:
+    implementation: [pyproject.toml, uv.lock]
+    tests: [uv lock --check, uv sync --frozen, uv build]
+  OPS-003:
+    implementation: [pyproject.toml, .github/workflows/quality.yml]
+    tests: [ruff format, ruff check, mypy, pytest]
+  OPS-004:
+    implementation: [src/nr_ran_sim/errors.py, src/nr_ran_sim/cli/main.py]
+    tests: [tests/integration/test_cli.py]
+  OPS-005:
+    implementation: [src/nr_ran_sim/observability.py]
+    tests: [tests/unit/test_errors_observability.py]
+  OPS-006:
+    implementation: [pyproject.toml, schemas/scenario.schema.json]
+    tests: [tests/integration/test_repository_contract.py]
+  OPS-007:
+    implementation: [pyproject.toml, .github/workflows/quality.yml]
+    tests: [bandit, pip-audit]
+  OPS-009:
+    implementation: [tests/integration/test_repository_contract.py]
+    tests: [tests/integration/test_repository_contract.py]
+  OPS-010:
+    implementation: [README.md, docs/QUALITY_AND_EVIDENCE_POLICY.md]
+    tests: [configuration claims review]

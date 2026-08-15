@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="930" viewBox="0 0 1600 930" role="img" aria-labelledby="title desc" data-design-system="systems-lab-v1" data-layout="hero">
+<title id="title">Flagship 5G NR simulation scenario</title>
+<desc id="desc">An illustrative three-cell UMa downlink with eight broadband and four low-latency UEs, plus the radio and experiment configuration.</desc>
+<defs>
+<pattern id="engineering-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dce2e8" stroke-width="1"/></pattern>
+</defs>
+<rect width="1600" height="930" fill="#f4f6f8"/>
+<rect width="1600" height="930" fill="url(#engineering-grid)" opacity="0.42"/>
+<rect width="1600" height="14" fill="#0b1b2b"/>
+<rect y="14" width="1600" height="4" fill="#2457d6"/>
+<text x="64" y="66" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#2457d6">FIG 01 / FLAGSHIP SIMULATION SCENARIO</text>
+<text x="64" y="121" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="38" font-weight="800" letter-spacing="0" fill="#0b1b2b">Three-cell 5G NR downlink under heterogeneous QoS</text>
+<text x="64" y="158" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="20" font-weight="500" letter-spacing="0" fill="#5f6f80">Seeded UMa topology • shared spectrum • scheduler-controlled PRB allocation</text>
+<g><rect x="1043" y="48" width="144" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="1043" y="48" width="7" height="46" fill="#16865b"/><text x="1067" y="78" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">3 gNodeBs</text></g>
+<g><rect x="1205" y="48" width="134" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="1205" y="48" width="7" height="46" fill="#2457d6"/><text x="1229" y="78" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">12 UEs</text></g>
+<g><rect x="1357" y="48" width="179" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="1357" y="48" width="7" height="46" fill="#64748b"/><text x="1381" y="78" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">100 MHz</text></g>
+<rect x="52" y="190" width="995" height="680" rx="3" fill="#ffffff" opacity="0.95" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1071" y="190" width="477" height="680" rx="3" fill="#ffffff" opacity="0.95" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="88" y="234" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="23" font-weight="750" letter-spacing="0" fill="#0b1b2b">Illustrative deployment view</text>
+<text x="1011" y="234" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="600" letter-spacing="0" fill="#5f6f80">seeded positions vary by replication</text>
+<polygon points="147,606 219,481 365,481 437,606 365,731 219,731" fill="#2457d6" fill-opacity="0.035" stroke="#2457d6" stroke-opacity="0.34" stroke-width="2"/>
+<polygon points="638,606 710,481 856,481 928,606 856,731 710,731" fill="#64748b" fill-opacity="0.035" stroke="#64748b" stroke-opacity="0.34" stroke-width="2"/>
+<polygon points="390,337 462,212 608,212 680,337 608,462 462,462" fill="#16865b" fill-opacity="0.035" stroke="#16865b" stroke-opacity="0.34" stroke-width="2"/>
+<line x1="292" y1="570" x2="176" y2="548" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="292" y1="570" x2="342" y2="716" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="292" y1="570" x2="454" y2="528" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="783" y1="570" x2="699" y2="700" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="783" y1="570" x2="885" y2="538" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="783" y1="570" x2="735" y2="493" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="535" y1="301" x2="430" y2="277" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="535" y1="301" x2="627" y2="281" stroke="#2457d6" stroke-width="2.2" opacity="0.58"/>
+<line x1="292" y1="570" x2="231" y2="673" stroke="#f2a30b" stroke-width="2.2" opacity="0.58" stroke-dasharray="5 7"/>
+<line x1="783" y1="570" x2="840" y2="663" stroke="#f2a30b" stroke-width="2.2" opacity="0.58" stroke-dasharray="5 7"/>
+<line x1="535" y1="301" x2="535" y2="433" stroke="#f2a30b" stroke-width="2.2" opacity="0.58" stroke-dasharray="5 7"/>
+<line x1="535" y1="301" x2="571" y2="239" stroke="#f2a30b" stroke-width="2.2" opacity="0.58" stroke-dasharray="5 7"/>
+<path d="M 315 565 Q 540 470 755 565" fill="none" stroke="#c43d4e" stroke-width="2" stroke-dasharray="8 9" opacity="0.48"/>
+<path d="M 319 568 Q 402 409 507 367" fill="none" stroke="#c43d4e" stroke-width="2" stroke-dasharray="8 9" opacity="0.48"/>
+<path d="M 755 568 Q 670 409 562 367" fill="none" stroke="#c43d4e" stroke-width="2" stroke-dasharray="8 9" opacity="0.48"/>
+<circle cx="292" cy="579" r="43" fill="none" stroke="#c4cdd7" stroke-width="1" stroke-dasharray="4 5"/>
+<path d="M 292 557 L 270 624 M 292 557 L 314 624 M 278 586 L 306 586 M 273 603 L 311 603 M 264 624 L 320 624" fill="none" stroke="#0b1b2b" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 278 558 Q 253 572 257 598 M 306 558 Q 331 572 327 598" fill="none" stroke="#2457d6" stroke-width="3"/>
+<rect x="256" y="635" width="72" height="28" rx="3" fill="#16865b" opacity="0.16"/>
+<text x="292" y="655" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#16865b">gNB A</text>
+<circle cx="783" cy="579" r="43" fill="none" stroke="#c4cdd7" stroke-width="1" stroke-dasharray="4 5"/>
+<path d="M 783 557 L 761 624 M 783 557 L 805 624 M 769 586 L 797 586 M 764 603 L 802 603 M 755 624 L 811 624" fill="none" stroke="#0b1b2b" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 769 558 Q 744 572 748 598 M 797 558 Q 822 572 818 598" fill="none" stroke="#2457d6" stroke-width="3"/>
+<rect x="747" y="635" width="72" height="28" rx="3" fill="#16865b" opacity="0.16"/>
+<text x="783" y="655" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#16865b">gNB B</text>
+<circle cx="535" cy="310" r="43" fill="none" stroke="#c4cdd7" stroke-width="1" stroke-dasharray="4 5"/>
+<path d="M 535 288 L 513 355 M 535 288 L 557 355 M 521 317 L 549 317 M 516 334 L 554 334 M 507 355 L 563 355" fill="none" stroke="#0b1b2b" stroke-width="4" stroke-linejoin="miter"/>
+<path d="M 521 289 Q 496 303 500 329 M 549 289 Q 574 303 570 329" fill="none" stroke="#2457d6" stroke-width="3"/>
+<rect x="499" y="366" width="72" height="28" rx="3" fill="#16865b" opacity="0.16"/>
+<text x="535" y="386" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="800" letter-spacing="0" fill="#16865b">gNB C</text>
+<rect x="164" y="529" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="176" cy="561" r="2" fill="#2457d6"/>
+<text x="176" y="588" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B1</text>
+<rect x="330" y="697" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="342" cy="729" r="2" fill="#2457d6"/>
+<text x="342" y="756" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B2</text>
+<rect x="442" y="509" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="454" cy="541" r="2" fill="#2457d6"/>
+<text x="454" y="568" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B3</text>
+<rect x="687" y="681" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="699" cy="713" r="2" fill="#2457d6"/>
+<text x="699" y="740" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B4</text>
+<rect x="873" y="519" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="885" cy="551" r="2" fill="#2457d6"/>
+<text x="885" y="578" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B5</text>
+<rect x="723" y="474" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="735" cy="506" r="2" fill="#2457d6"/>
+<text x="735" y="533" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B6</text>
+<rect x="418" y="258" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="430" cy="290" r="2" fill="#2457d6"/>
+<text x="430" y="317" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B7</text>
+<rect x="615" y="262" width="24" height="38" rx="2" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<circle cx="627" cy="294" r="2" fill="#2457d6"/>
+<text x="627" y="321" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#2457d6">B8</text>
+<path d="M 231 656 L 248 673 L 231 690 L 214 673 Z" fill="#f4f6f8" stroke="#f2a30b" stroke-width="3"/>
+<path d="M 231 664 L 225 675 L 232 675 L 228 684 L 239 670 L 232 670 Z" fill="#f2a30b"/>
+<text x="231" y="713" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#f2a30b">L1</text>
+<path d="M 840 646 L 857 663 L 840 680 L 823 663 Z" fill="#f4f6f8" stroke="#f2a30b" stroke-width="3"/>
+<path d="M 840 654 L 834 665 L 841 665 L 837 674 L 848 660 L 841 660 Z" fill="#f2a30b"/>
+<text x="840" y="703" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#f2a30b">L2</text>
+<path d="M 535 416 L 552 433 L 535 450 L 518 433 Z" fill="#f4f6f8" stroke="#f2a30b" stroke-width="3"/>
+<path d="M 535 424 L 529 435 L 536 435 L 532 444 L 543 430 L 536 430 Z" fill="#f2a30b"/>
+<text x="535" y="473" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#f2a30b">L3</text>
+<path d="M 571 222 L 588 239 L 571 256 L 554 239 Z" fill="#f4f6f8" stroke="#f2a30b" stroke-width="3"/>
+<path d="M 571 230 L 565 241 L 572 241 L 568 250 L 579 236 L 572 236 Z" fill="#f2a30b"/>
+<text x="571" y="279" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="12" font-weight="800" letter-spacing="0" fill="#f2a30b">L4</text>
+<rect x="82" y="786" width="930" height="58" rx="3" fill="#e8edf2" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<line x1="111" y1="816" x2="153" y2="816" stroke="#2457d6" stroke-width="4"/>
+<rect x="128" y="811" width="10" height="10" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<text x="169" y="822" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" letter-spacing="0" fill="#0b1b2b">Broadband UE x 8</text>
+<line x1="395" y1="816" x2="437" y2="816" stroke="#f2a30b" stroke-width="4"/>
+<rect x="412" y="811" width="10" height="10" fill="#ffffff" stroke="#f2a30b" stroke-width="3"/>
+<text x="453" y="822" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" letter-spacing="0" fill="#0b1b2b">Low-latency UE x 4</text>
+<line x1="720" y1="816" x2="762" y2="816" stroke="#c43d4e" stroke-width="4"/>
+<rect x="737" y="811" width="10" height="10" fill="#ffffff" stroke="#c43d4e" stroke-width="3"/>
+<text x="778" y="822" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" letter-spacing="0" fill="#0b1b2b">Reuse-1 interference</text>
+<rect x="1104" y="234" width="412" height="48" rx="3" fill="#16865b" opacity="0.12"/>
+<text x="1128" y="266" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="800" letter-spacing="1" fill="#16865b">01</text>
+<text x="1176" y="266" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="750" letter-spacing="0" fill="#0b1b2b">Radio deployment</text>
+<text x="1108" y="312" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">FR1 downlink • 3.5 GHz • 100 MHz</text>
+<text x="1108" y="341" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">30 kHz SCS • 46 dBm per gNodeB</text>
+<text x="1108" y="370" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">3GPP UMa • LOS/NLOS • reuse-1</text>
+<rect x="1104" y="402" width="412" height="48" rx="3" fill="#f2a30b" opacity="0.12"/>
+<text x="1128" y="434" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="800" letter-spacing="1" fill="#f2a30b">02</text>
+<text x="1176" y="434" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="750" letter-spacing="0" fill="#0b1b2b">Heterogeneous traffic</text>
+<text x="1108" y="480" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">8 broadband • Poisson</text>
+<text x="1108" y="509" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">12000 bit packets</text>
+<text x="1108" y="538" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">4 low-latency • 1 ms periodic</text>
+<text x="1108" y="567" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">2000 bit packets • 5 ms deadline</text>
+<rect x="1104" y="605" width="412" height="48" rx="3" fill="#64748b" opacity="0.12"/>
+<text x="1128" y="637" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="800" letter-spacing="1" fill="#64748b">03</text>
+<text x="1176" y="637" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="750" letter-spacing="0" fill="#0b1b2b">Controlled comparison</text>
+<text x="1108" y="683" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">Round Robin • Max-C/I • PF</text>
+<text x="1108" y="712" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">Light → overload traffic sweep</text>
+<text x="1108" y="741" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">30 paired replications per point</text>
+<text x="1108" y="770" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="550" letter-spacing="0" fill="#5f6f80">Common random numbers + 95% CIs</text>
+<text x="1534" y="903" text-anchor="end" font-family="Consolas,Courier New,monospace" font-size="14" font-weight="500" letter-spacing="0" fill="#5f6f80">scenario heterogeneous-qos-study</text>
+</svg>

@@ -1,0 +1,83 @@
+schema_version: "1.0"
+catalogue_id: approved-reference-scenarios-v1
+approval:
+  reviewer: Abdelrahman Elsayed
+  date: 2026-08-14
+  purpose: Small semantic regression baselines; not independent verification or calibration
+semantic_fields: Full semantic payload defined by each artifact's versioned semantic_dict method
+excluded_fields: Wall-clock metadata, absolute artifact paths, and working-tree diagnostic state
+cases:
+  - id: REG-RADIO-001
+    kind: radio_snapshot
+    scenario: examples/scenarios/uma-multicell-radio.yaml
+    master_seed: "0x11111111111111111111111111111111"
+    replication_id: 0
+    reviewed_on: 2026-08-18
+    expected:
+      configuration_sha256: 52d194138355767033a725abc86b3715e8bd819e676c613d4267715c1b91b57a
+      semantic_sha256: 81393036061cf09803af753367cb0c24957684c0f8d505012b5ea68487340e37
+    regeneration: >-
+      nr-ran-sim radio-snapshot examples/scenarios/uma-multicell-radio.yaml
+      --master-seed 0x11111111111111111111111111111111 --replication-id 0
+
+  - id: REG-CAPACITY-001
+    kind: capacity_snapshot
+    scenario: examples/scenarios/uma-multicell-radio.yaml
+    master_seed: "0x11111111111111111111111111111111"
+    replication_id: 0
+    reviewed_on: 2026-08-18
+    expected:
+      configuration_sha256: 52d194138355767033a725abc86b3715e8bd819e676c613d4267715c1b91b57a
+      parent_radio_sha256: 81393036061cf09803af753367cb0c24957684c0f8d505012b5ea68487340e37
+      semantic_sha256: 0238da147cff69146437842c3b151537a732f9b786b3deadf3520e0e655658a6
+    regeneration: >-
+      nr-ran-sim capacity-snapshot examples/scenarios/uma-multicell-radio.yaml
+      --master-seed 0x11111111111111111111111111111111 --replication-id 0
+
+  - id: REG-STATIC-SYSTEM-001
+    kind: static_simulation
+    scenario: examples/scenarios/scheduler-qos-smoke.yaml
+    master_seed: "0x11111111111111111111111111111111"
+    replication_id: 0
+    code_revision: 47909b24fb55fd0423a4b5dc67047f1e911d5c4f
+    reviewed_on: 2026-08-18
+    expected:
+      configuration_sha256: 4462afc012438a0f6eca202aefbb2c8051d9c57ee53e6ca013f190ec28c70f83
+      exogenous_sha256: 95fe1fd4767eb6e8fc0f8ae40386bb81f2d529563e5ad8cd47b1474dbec7dd9c
+      semantic_sha256: a7aa72e5629e6352ff8ea23f0bed9e0dc69cf26c0bfec733f87a0448a16d4c69
+    regeneration: >-
+      nr-ran-sim simulate examples/scenarios/scheduler-qos-smoke.yaml
+      --master-seed 0x11111111111111111111111111111111 --replication-id 0
+      --code-revision 47909b24fb55fd0423a4b5dc67047f1e911d5c4f --working-tree-state clean
+
+  - id: REG-DYNAMIC-FR1-001
+    kind: dynamic_simulation
+    scenario: examples/scenarios/dynamic-fr1-mobility.yaml
+    master_seed: "0x44444444444444444444444444444444"
+    replication_id: 1
+    code_revision: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    reviewed_on: 2026-08-18
+    expected:
+      configuration_sha256: ef3102a91dbfa5758c4960bd41f0935e2a156f31309b2064df29f8cc7a580727
+      exogenous_sha256: 186f40764eb0d379d6b34f81fbda1da2e82ca1368972ce458a3bf097e2f2eb6a
+      semantic_sha256: 7da14bdd9275d1b5d50228abd29171b45fc7f31ac341e107242c992407951f00
+    regeneration: >-
+      nr-ran-sim simulate examples/scenarios/dynamic-fr1-mobility.yaml
+      --master-seed 0x44444444444444444444444444444444 --replication-id 1
+      --code-revision bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb --working-tree-state clean
+
+  - id: REG-DYNAMIC-FR2-001
+    kind: dynamic_simulation
+    scenario: examples/scenarios/fr2-mobility-availability.yaml
+    master_seed: "0x44444444444444444444444444444444"
+    replication_id: 1
+    code_revision: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    reviewed_on: 2026-08-18
+    expected:
+      configuration_sha256: c7425517047f546ff336d994e777e790e45186c72588a53f2f149bbf9e7ff98d
+      exogenous_sha256: f6db1816fa539046d489dcdca8e7e715564e615c02ef45e79a498c5c3bf61f30
+      semantic_sha256: bbec3cf4f36f1071b56f046ee6b4beff58f7597d71352f9a40ce6ec3867066ca
+    regeneration: >-
+      nr-ran-sim simulate examples/scenarios/fr2-mobility-availability.yaml
+      --master-seed 0x44444444444444444444444444444444 --replication-id 1
+      --code-revision bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb --working-tree-state clean

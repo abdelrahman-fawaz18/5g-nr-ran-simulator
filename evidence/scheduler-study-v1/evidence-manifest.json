@@ -1,0 +1,105 @@
+{
+  "experiment_id": "scheduler-performance-study",
+  "experiment_sha256": "8ecf900823379132b45bfc574bbbbad76381c8e81fa949baf1a8a3792430a563",
+  "file_count": 19,
+  "files": [
+    {
+      "file_sha256": "ffbfb35c02f3adceab3fde0cd8a753b0e90c073ded754dd4db5b1405705d9336",
+      "path": "bundle-summary.json",
+      "size_bytes": 2088
+    },
+    {
+      "file_sha256": "4447eb61d418d2199e2e02b82d9d2cbc9e28201ff983703bb30023494f864de1",
+      "path": "experiment-manifest.json",
+      "size_bytes": 5215
+    },
+    {
+      "file_sha256": "34a6560f595be317067b2a01bbe71b27d28cc3bb4be5bd8aa2c847bc23d9c590",
+      "path": "metrics/summary.json",
+      "size_bytes": 1263089
+    },
+    {
+      "file_sha256": "4050648ace4226c1a2f09a818a0156004ee1909c05d083dd3ba59970f8735c43",
+      "path": "plots/cohort_goodput_bps--application--broadband-56826117.svg",
+      "size_bytes": 9736
+    },
+    {
+      "file_sha256": "8a2a0b0a3b770dd9b82a0f987c78b44f21ce6fd11ad114011f6dac42ea38c4f2",
+      "path": "plots/cohort_goodput_bps--application--low-latency-ad4187ad.svg",
+      "size_bytes": 9740
+    },
+    {
+      "file_sha256": "7aa703e2ca818ae7a4cca0e3333b33431ee5ef6e8cbdddde8083e9513db3a35c",
+      "path": "plots/cohort_goodput_bps--system--system-0dc8cd0a.svg",
+      "size_bytes": 9720
+    },
+    {
+      "file_sha256": "916f0f21276813de4e4a8bb02bfe586fe7b5309a5ca7b8fd10aae65b66c45537",
+      "path": "plots/deadline_success_ratio--application--low-latency-ad4187ad.svg",
+      "size_bytes": 9732
+    },
+    {
+      "file_sha256": "0d9ddd0aa7d9c634297b23ea02f67d440e27872a25854af796e88ae927f13f79",
+      "path": "plots/delivery_ratio--application--broadband-56826117.svg",
+      "size_bytes": 9704
+    },
+    {
+      "file_sha256": "48f5b087e82d8771154406f820a8007b82329cc776b9a6ce4944a9bd0d0cfb42",
+      "path": "plots/delivery_ratio--application--low-latency-ad4187ad.svg",
+      "size_bytes": 9708
+    },
+    {
+      "file_sha256": "7f49ab7f6539368823586cba084e13be4ae093156d0de37f2be8e34942a53d8b",
+      "path": "plots/delivery_ratio--system--system-0dc8cd0a.svg",
+      "size_bytes": 9688
+    },
+    {
+      "file_sha256": "19783ad9ecfb5cbb224f85636dc3e049f286e7d99a4ceb5ee4011523dabf39fb",
+      "path": "plots/fifth_percentile_ue_goodput_bps--system--system-0dc8cd0a.svg",
+      "size_bytes": 9759
+    },
+    {
+      "file_sha256": "8419231484861fe063af66bbfe1ca8eff6914367cad07fa91fe1c6556d7a55ff",
+      "path": "plots/jain_fairness--system--system-0dc8cd0a.svg",
+      "size_bytes": 9687
+    },
+    {
+      "file_sha256": "8686c289ca5aa060e3ab78978d6caa45124dd18e210c8b89409f180c6f3a4dee",
+      "path": "plots/payload_spectral_efficiency_bit_per_s_per_hz--system--system-0dc8cd0a.svg",
+      "size_bytes": 9781
+    },
+    {
+      "file_sha256": "98925757a2a6c84882bba700c0b0e5fcf73084854600b64feb0745dc9b5942bc",
+      "path": "plots/plot-manifest.json",
+      "size_bytes": 459362
+    },
+    {
+      "file_sha256": "307ea8d49b05bb1c5c13ad2663b2976c5fa2d9ec3362b9d0c09425c74f0cb5b0",
+      "path": "plots/prb_utilization--system--system-0dc8cd0a.svg",
+      "size_bytes": 9692
+    },
+    {
+      "file_sha256": "c1209a7d869baad5bec86e04659500a570e94baba530efa7fa1d5dfb290ebb32",
+      "path": "plots/system_delay_p95_ns--application--broadband-56826117.svg",
+      "size_bytes": 9736
+    },
+    {
+      "file_sha256": "12f095c45d7fc71af59e72494729b975c83e9e79867dc7a2ea4de8db008e2814",
+      "path": "plots/system_delay_p95_ns--application--low-latency-ad4187ad.svg",
+      "size_bytes": 9740
+    },
+    {
+      "file_sha256": "84b9d93d80480b1de0acfff7138b82a98a6b5a01ac6735fe2c7fd65fd040643b",
+      "path": "plots/system_delay_p95_ns--system--system-0dc8cd0a.svg",
+      "size_bytes": 9720
+    },
+    {
+      "file_sha256": "e2719921460891547c8ca0ffc778fe7cabebc1cd84504fc2a0da1b6c7fbf9184",
+      "path": "verification.json",
+      "size_bytes": 1368
+    }
+  ],
+  "schema_version": "1.0",
+  "semantic_sha256": "33c149251d8cb162496e42e8dcf4a489b45185981d15ba5b2e361d375d04607f",
+  "source_bundle_semantic_sha256": "0cd57c3b9155bcba6a3e58b26882620e24bd2c82aa1c9e9232a3b411fe666c04"
+}

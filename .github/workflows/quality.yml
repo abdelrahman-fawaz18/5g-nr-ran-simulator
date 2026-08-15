@@ -1,0 +1,96 @@
+name: Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: ${{ matrix.os }} / Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.os }}
+    env:
+      # Keep every uv command on the matrix interpreter; .python-version is the local default.
+      UV_PYTHON: ${{ matrix.python-version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11", "3.13"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.12.3"
+          enable-cache: true
+
+      - name: Verify lock and install frozen environment
+        run: |
+          uv lock --check
+          uv sync --frozen --all-extras --python ${{ matrix.python-version }}
+
+      - name: Verify formatting and lint
+        run: |
+          uv run ruff format --check src tests tools
+          uv run ruff check src tests tools
+
+      - name: Verify strict core typing
+        run: uv run mypy src
+
+      - name: Run automated tests with branch coverage
+        run: uv run pytest
+
+      - name: Verify committed portfolio visuals
+        run: |
+          uv run python tools/generate_portfolio_visuals.py
+          git diff --exit-code -- docs/assets
+
+      - name: Run representative performance smoke
+        run: uv run python tools/benchmark_performance.py --repeat 1 --output artifacts/ci-performance-benchmark.json
+
+      - name: Scan source for common security defects
+        run: uv run bandit -c pyproject.toml -r src
+
+      - name: Audit locked dependencies
+        run: |
+          uv export --frozen --all-extras --no-emit-project --no-hashes --output-file .audit-requirements.txt
+          uv run pip-audit --strict --requirement .audit-requirements.txt
+
+      - name: Build distribution artifacts
+        run: uv build
+
+      - name: Verify the built wheel in an isolated environment
+        run: |
+          uv run --isolated --no-project --with ./dist/nr_ran_sim-0.1.0-py3-none-any.whl nr-ran-sim --version
+          uv run --isolated --no-project --with ./dist/nr_ran_sim-0.1.0-py3-none-any.whl python -c "import nr_ran_sim.experiments.config, nr_ran_sim.experiments.dynamic_simulation, nr_ran_sim.experiments.orchestration, nr_ran_sim.experiments.statistics, nr_ran_sim.radio.capacity_snapshot, nr_ran_sim.radio.snapshot, nr_ran_sim.reporting, nr_ran_sim.traffic"
+
+      - name: Exercise validation CLI
+        run: |
+          uv run nr-ran-sim validate examples/scenarios/uma-fr1-foundation.yaml --output artifacts/ci-normalized.json --quiet
+          uv run nr-ran-sim validate examples/scenarios/traffic-queue-smoke.yaml --output artifacts/ci-traffic-normalized.json --quiet
+          uv run nr-ran-sim radio-snapshot examples/scenarios/uma-multicell-radio.yaml --master-seed 0x11111111111111111111111111111111 --replication-id 0 --output artifacts/ci-radio.json --quiet
+          uv run nr-ran-sim capacity-snapshot examples/scenarios/uma-multicell-radio.yaml --master-seed 0x11111111111111111111111111111111 --replication-id 0 --output artifacts/ci-capacity.json --quiet
+          uv run nr-ran-sim simulate examples/scenarios/scheduler-qos-smoke.yaml --master-seed 0x11111111111111111111111111111111 --replication-id 0 --code-revision 1111111111111111111111111111111111111111 --working-tree-state clean --output artifacts/ci-simulation.json --quiet
+          uv run nr-ran-sim simulate examples/scenarios/dynamic-fr1-mobility.yaml --master-seed 0x11111111111111111111111111111111 --replication-id 0 --code-revision 1111111111111111111111111111111111111111 --working-tree-state clean --output artifacts/ci-dynamic-fr1.json --quiet
+          uv run nr-ran-sim simulate examples/scenarios/fr2-mobility-availability.yaml --master-seed 0x11111111111111111111111111111111 --replication-id 0 --code-revision 1111111111111111111111111111111111111111 --working-tree-state clean --output artifacts/ci-fr2.json --quiet
+          uv run nr-ran-sim experiment-validate examples/experiments/scheduler-comparison-smoke.yaml --quiet
+          uv run nr-ran-sim experiment-run examples/experiments/scheduler-comparison-smoke.yaml --output artifacts/ci-experiment --code-revision 1111111111111111111111111111111111111111 --working-tree-state clean --max-workers 2
+          uv run nr-ran-sim experiment-summarize artifacts/ci-experiment
+          uv run nr-ran-sim experiment-plot artifacts/ci-experiment
+          uv run nr-ran-sim experiment-verify artifacts/ci-experiment

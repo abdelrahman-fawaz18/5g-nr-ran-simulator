@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="860" viewBox="0 0 1600 860" role="img" aria-labelledby="title desc" data-design-system="systems-lab-v1" data-layout="evidence-plot">
+<title id="title">System Delay P95 Ns by experiment variant</title>
+<desc id="desc">Mean and 95% deterministic bootstrap confidence interval for system_delay_p95_ns at system:system.</desc>
+<defs><pattern id="engineering-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dce2e8" stroke-width="1"/></pattern></defs>
+<rect width="100%" height="100%" fill="#f4f6f8"/>
+<rect width="100%" height="100%" fill="url(#engineering-grid)" opacity="0.42"/>
+<rect width="100%" height="14" fill="#0b1b2b"/>
+<rect y="14" width="100%" height="4" fill="#2457d6"/>
+<text x="135.0" y="62" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#2457d6">EVIDENCE PLOT / SAVED EXPERIMENT</text>
+<text x="135.0" y="116" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="38" font-weight="750" fill="#0b1b2b">System Delay P95 Ns</text>
+<text x="135.0" y="151" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="19" fill="#5f6f80">system:system · mean with 95% percentile-bootstrap interval</text>
+<line x1="135.0" y1="715.00" x2="1535.0" y2="715.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="721.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">-1.31e+07</text>
+<line x1="135.0" y1="607.00" x2="1535.0" y2="607.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="613.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">2.48e+07</text>
+<line x1="135.0" y1="499.00" x2="1535.0" y2="499.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="505.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">6.27e+07</text>
+<line x1="135.0" y1="391.00" x2="1535.0" y2="391.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="397.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">1.01e+08</text>
+<line x1="135.0" y1="283.00" x2="1535.0" y2="283.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="289.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">1.38e+08</text>
+<line x1="135.0" y1="175.00" x2="1535.0" y2="175.00" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="119.0" y="181.00" text-anchor="end" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" fill="#5f6f80">1.76e+08</text>
+<text x="135.00" y="753.0" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#5f6f80">Light</text>
+<text x="601.67" y="753.0" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#5f6f80">Nominal</text>
+<text x="1068.33" y="753.0" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#5f6f80">High</text>
+<text x="1535.00" y="753.0" text-anchor="middle" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#5f6f80">Overload</text>
+<line x1="135.00" y1="674.76" x2="135.00" y2="674.97" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="126.00" y1="674.76" x2="144.00" y2="674.76" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="126.00" y1="674.97" x2="144.00" y2="674.97" stroke="#2457d6" stroke-width="2.5"/>
+<rect x="129.00" y="668.88" width="12" height="12" fill="#ffffff" stroke="#2457d6" stroke-width="4"/>
+<line x1="601.67" y1="674.25" x2="601.67" y2="674.67" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="592.67" y1="674.25" x2="610.67" y2="674.25" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="592.67" y1="674.67" x2="610.67" y2="674.67" stroke="#2457d6" stroke-width="2.5"/>
+<rect x="595.67" y="668.47" width="12" height="12" fill="#ffffff" stroke="#2457d6" stroke-width="4"/>
+<line x1="1068.33" y1="637.84" x2="1068.33" y2="672.51" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="1059.33" y1="637.84" x2="1077.33" y2="637.84" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="1059.33" y1="672.51" x2="1077.33" y2="672.51" stroke="#2457d6" stroke-width="2.5"/>
+<rect x="1062.33" y="651.58" width="12" height="12" fill="#ffffff" stroke="#2457d6" stroke-width="4"/>
+<line x1="1535.00" y1="554.23" x2="1535.00" y2="616.81" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="1526.00" y1="554.23" x2="1544.00" y2="554.23" stroke="#2457d6" stroke-width="2.5"/>
+<line x1="1526.00" y1="616.81" x2="1544.00" y2="616.81" stroke="#2457d6" stroke-width="2.5"/>
+<rect x="1529.00" y="579.99" width="12" height="12" fill="#ffffff" stroke="#2457d6" stroke-width="4"/>
+<polyline points="135.00,674.88 601.67,674.47 1068.33,657.58 1535.00,585.99" fill="none" stroke="#2457d6" stroke-width="4" stroke-linejoin="miter"/>
+<line x1="135.0" y1="806" x2="180.0" y2="806" stroke="#2457d6" stroke-width="4"/>
+<rect x="152.0" y="801" width="10" height="10" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<text x="195.0" y="813" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#0b1b2b">Round Robin</text>
+<line x1="135.00" y1="534.31" x2="135.00" y2="606.00" stroke="#64748b" stroke-width="2.5"/>
+<line x1="126.00" y1="534.31" x2="144.00" y2="534.31" stroke="#64748b" stroke-width="2.5"/>
+<line x1="126.00" y1="606.00" x2="144.00" y2="606.00" stroke="#64748b" stroke-width="2.5"/>
+<rect x="129.00" y="564.98" width="12" height="12" fill="#ffffff" stroke="#64748b" stroke-width="4"/>
+<line x1="601.67" y1="414.28" x2="601.67" y2="498.58" stroke="#64748b" stroke-width="2.5"/>
+<line x1="592.67" y1="414.28" x2="610.67" y2="414.28" stroke="#64748b" stroke-width="2.5"/>
+<line x1="592.67" y1="498.58" x2="610.67" y2="498.58" stroke="#64748b" stroke-width="2.5"/>
+<rect x="595.67" y="450.79" width="12" height="12" fill="#ffffff" stroke="#64748b" stroke-width="4"/>
+<line x1="1068.33" y1="290.82" x2="1068.33" y2="355.76" stroke="#64748b" stroke-width="2.5"/>
+<line x1="1059.33" y1="290.82" x2="1077.33" y2="290.82" stroke="#64748b" stroke-width="2.5"/>
+<line x1="1059.33" y1="355.76" x2="1077.33" y2="355.76" stroke="#64748b" stroke-width="2.5"/>
+<rect x="1062.33" y="315.92" width="12" height="12" fill="#ffffff" stroke="#64748b" stroke-width="4"/>
+<line x1="1535.00" y1="212.24" x2="1535.00" y2="278.66" stroke="#64748b" stroke-width="2.5"/>
+<line x1="1526.00" y1="212.24" x2="1544.00" y2="212.24" stroke="#64748b" stroke-width="2.5"/>
+<line x1="1526.00" y1="278.66" x2="1544.00" y2="278.66" stroke="#64748b" stroke-width="2.5"/>
+<rect x="1529.00" y="238.55" width="12" height="12" fill="#ffffff" stroke="#64748b" stroke-width="4"/>
+<polyline points="135.00,570.98 601.67,456.79 1068.33,321.92 1535.00,244.55" fill="none" stroke="#64748b" stroke-width="4" stroke-linejoin="miter"/>
+<line x1="465.0" y1="806" x2="510.0" y2="806" stroke="#64748b" stroke-width="4"/>
+<rect x="482.0" y="801" width="10" height="10" fill="#ffffff" stroke="#64748b" stroke-width="3"/>
+<text x="525.0" y="813" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#0b1b2b">Proportional Fair</text>
+<line x1="135.00" y1="456.18" x2="135.00" y2="570.60" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="126.00" y1="456.18" x2="144.00" y2="456.18" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="126.00" y1="570.60" x2="144.00" y2="570.60" stroke="#f2a30b" stroke-width="2.5"/>
+<rect x="129.00" y="508.24" width="12" height="12" fill="#ffffff" stroke="#f2a30b" stroke-width="4"/>
+<line x1="601.67" y1="441.10" x2="601.67" y2="548.67" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="592.67" y1="441.10" x2="610.67" y2="441.10" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="592.67" y1="548.67" x2="610.67" y2="548.67" stroke="#f2a30b" stroke-width="2.5"/>
+<rect x="595.67" y="490.36" width="12" height="12" fill="#ffffff" stroke="#f2a30b" stroke-width="4"/>
+<line x1="1068.33" y1="339.38" x2="1068.33" y2="422.26" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="1059.33" y1="339.38" x2="1077.33" y2="339.38" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="1059.33" y1="422.26" x2="1077.33" y2="422.26" stroke="#f2a30b" stroke-width="2.5"/>
+<rect x="1062.33" y="373.78" width="12" height="12" fill="#ffffff" stroke="#f2a30b" stroke-width="4"/>
+<line x1="1535.00" y1="236.15" x2="1535.00" y2="326.99" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="1526.00" y1="236.15" x2="1544.00" y2="236.15" stroke="#f2a30b" stroke-width="2.5"/>
+<line x1="1526.00" y1="326.99" x2="1544.00" y2="326.99" stroke="#f2a30b" stroke-width="2.5"/>
+<rect x="1529.00" y="273.25" width="12" height="12" fill="#ffffff" stroke="#f2a30b" stroke-width="4"/>
+<polyline points="135.00,514.24 601.67,496.36 1068.33,379.78 1535.00,279.25" fill="none" stroke="#f2a30b" stroke-width="4" stroke-linejoin="miter"/>
+<line x1="795.0" y1="806" x2="840.0" y2="806" stroke="#f2a30b" stroke-width="4"/>
+<rect x="812.0" y="801" width="10" height="10" fill="#ffffff" stroke="#f2a30b" stroke-width="3"/>
+<text x="855.0" y="813" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="650" fill="#0b1b2b">Max-C/I</text>
+<text x="42" y="445.0" text-anchor="middle" transform="rotate(-90 42 445.0)" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" fill="#5f6f80">ns</text>
+<text x="1545" y="836" text-anchor="end" font-family="Consolas,Courier New,monospace" font-size="14" fill="#5f6f80">ZERO-INCLUSIVE SCALE / EXPERIMENT 8ecf90082337</text>
+</svg>

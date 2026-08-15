@@ -1,0 +1,59 @@
+schema_version: "1.0"
+capability: nr-resource-grid-and-capacity
+evidence_level: mixed-E1-E2
+scope_note: >-
+  Release 18 resource/CQI/MCS/TBS tables and integer procedures are E2 reference-verified in the
+  supported one-layer static domain. The SINR threshold is an E1 project-derived analytical
+  abstraction and is not measurement-calibrated. Scheduling, observed throughput, BLER sampling,
+  and HARQ remain out of scope.
+
+requirements:
+  SYS-003:
+    implementation: [src/nr_ran_sim/radio/capacity_snapshot.py]
+    tests: [tests/integration/test_capacity_snapshot.py, tests/integration/test_capacity_replay_process.py]
+  SYS-008:
+    implementation: [src/nr_ran_sim/radio/capacity_snapshot.py]
+    tests: [tests/integration/test_capacity_snapshot.py]
+  LINK-007:
+    implementation: [src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_normalize.py]
+  LINK-008:
+    implementation: [src/nr_ran_sim/radio/resources.py]
+    tests: [tests/unit/test_nr_resource_capacity.py]
+  LINK-009:
+    implementation: [src/nr_ran_sim/radio/resources.py, src/nr_ran_sim/radio/capacity.py]
+    tests: [tests/unit/test_nr_resource_capacity.py, tests/reference/test_capacity_reference.py]
+  LINK-010:
+    implementation: [src/nr_ran_sim/radio/nr_tables.py, src/nr_ran_sim/radio/link_adaptation.py]
+    tests: [tests/unit/test_link_adaptation.py, tests/reference/test_capacity_reference.py]
+  LINK-011:
+    implementation: [src/nr_ran_sim/radio/link_adaptation.py]
+    tests: [tests/unit/test_link_adaptation.py]
+  LINK-012:
+    implementation: [src/nr_ran_sim/radio/link_adaptation.py]
+    tests: [tests/unit/test_link_adaptation.py, tests/unit/test_nr_resource_capacity.py]
+  LINK-013:
+    implementation: [src/nr_ran_sim/radio/tbs.py]
+    tests: [tests/reference/test_capacity_reference.py]
+    vectors: [tests/reference/data/ts38214_transport_block_vectors.yaml]
+  LINK-014:
+    implementation: [src/nr_ran_sim/radio/capacity.py, src/nr_ran_sim/radio/capacity_snapshot.py]
+    tests: [tests/unit/test_nr_resource_capacity.py, tests/integration/test_capacity_snapshot.py]
+  EXP-002:
+    implementation: [src/nr_ran_sim/radio/capacity_snapshot.py, src/nr_ran_sim/radio/snapshot.py]
+    tests: [tests/integration/test_capacity_snapshot.py, tests/integration/test_capacity_replay_process.py]
+  EXP-003:
+    implementation: [src/nr_ran_sim/radio/capacity_snapshot.py]
+    tests: [tests/integration/test_capacity_replay_process.py]
+  OPS-002:
+    implementation: [src/nr_ran_sim/radio]
+    tests: [ruff format, ruff check, mypy]
+  OPS-003:
+    implementation: [tests/unit, tests/reference, tests/integration]
+    tests: [pytest with branch coverage]
+  OPS-004:
+    implementation: [tests/reference/data/ts38214_transport_block_vectors.yaml]
+    tests: [tests/reference/test_capacity_reference.py]
+  OPS-008:
+    implementation: [docs/radio/nr-resource-grid-and-link-adaptation.md]
+    tests: [tests/integration/test_repository_contract.py]

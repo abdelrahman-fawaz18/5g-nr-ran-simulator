@@ -1,0 +1,39 @@
+schema_version: "1.0"
+vector_family: tr38901-path-loss
+source:
+  document: 3GPP TR 38.901
+  version: 18.1.0
+  release: 18
+  location: Table 7.4.1-1 and notes 1-6
+  url: https://www.etsi.org/deliver/etsi_tr/138900_138999/138901/18.01.00_60/tr_138901v180100p.pdf
+calculation:
+  method: separately implemented clarity-first calculator in tests/reference/test_propagation_reference.py
+  reviewed_date: "2026-08-13"
+  tolerance_db: 0.000001
+common_inputs:
+  carrier_frequency_hz: 3500000000
+  rma: {base_station_height_m: 35, user_terminal_height_m: 1.5, average_building_height_m: 5, average_street_width_m: 20}
+  uma: {base_station_height_m: 25, user_terminal_height_m: 1.5, effective_environment_height_m: 1}
+  umi_street_canyon: {base_station_height_m: 10, user_terminal_height_m: 1.5, effective_environment_height_m: 1}
+vectors:
+  - {id: RV-PL-RMA-LOS-LOWER, scenario: rma, state: los, distance_2d_m: 10, expected_path_loss_db: 74.28036444487135}
+  - {id: RV-PL-RMA-LOS-INTERIOR, scenario: rma, state: los, distance_2d_m: 1000, expected_path_loss_db: 105.45964613063707}
+  - {id: RV-PL-RMA-LOS-BREAKPOINT, scenario: rma, state: los, distance_2d_m: 3848.451000647497, expected_path_loss_db: 121.42193167207895}
+  - {id: RV-PL-RMA-LOS-UPPER, scenario: rma, state: los, distance_2d_m: 10000, expected_path_loss_db: 138.0099325572965}
+  - {id: RV-PL-RMA-NLOS-LOWER-MAX, scenario: rma, state: nlos, distance_2d_m: 10, expected_path_loss_db: 74.28036444487135}
+  - {id: RV-PL-RMA-NLOS-INTERIOR, scenario: rma, state: nlos, distance_2d_m: 1000, expected_path_loss_db: 130.4243060761729}
+  - {id: RV-PL-RMA-NLOS-UPPER, scenario: rma, state: nlos, distance_2d_m: 5000, expected_path_loss_db: 157.41885334990107}
+  - {id: RV-PL-UMA-LOS-LOWER, scenario: uma, state: los, distance_2d_m: 10, expected_path_loss_db: 69.83991585250035}
+  - {id: RV-PL-UMA-LOS-INTERIOR, scenario: uma, state: los, distance_2d_m: 100, expected_path_loss_db: 83.13815667685238}
+  - {id: RV-PL-UMA-LOS-BREAKPOINT, scenario: uma, state: los, distance_2d_m: 560, expected_path_loss_db: 99.34990280691983}
+  - {id: RV-PL-UMA-LOS-UPPER, scenario: uma, state: los, distance_2d_m: 5000, expected_path_loss_db: 137.3660913587902}
+  - {id: RV-PL-UMA-NLOS-LOWER, scenario: uma, state: nlos, distance_2d_m: 10, expected_path_loss_db: 79.41501216207544}
+  - {id: RV-PL-UMA-NLOS-INTERIOR, scenario: uma, state: nlos, distance_2d_m: 100, expected_path_loss_db: 103.03752359006074}
+  - {id: RV-PL-UMA-NLOS-UPPER, scenario: uma, state: nlos, distance_2d_m: 5000, expected_path_loss_db: 168.97729611264882}
+  - {id: RV-PL-UMI-LOS-LOWER, scenario: umi_street_canyon, state: los, distance_2d_m: 10, expected_path_loss_db: 66.76103280809198}
+  - {id: RV-PL-UMI-LOS-INTERIOR, scenario: umi_street_canyon, state: los, distance_2d_m: 100, expected_path_loss_db: 85.31418910250133}
+  - {id: RV-PL-UMI-LOS-BREAKPOINT, scenario: umi_street_canyon, state: los, distance_2d_m: 210, expected_path_loss_db: 92.05543086234786}
+  - {id: RV-PL-UMI-LOS-UPPER, scenario: umi_street_canyon, state: los, distance_2d_m: 5000, expected_path_loss_db: 147.11126570874984}
+  - {id: RV-PL-UMI-NLOS-LOWER, scenario: umi_street_canyon, state: nlos, distance_2d_m: 10, expected_path_loss_db: 73.45685976439194}
+  - {id: RV-PL-UMI-NLOS-INTERIOR, scenario: umi_street_canyon, state: nlos, distance_2d_m: 100, expected_path_loss_db: 104.64383201166098}
+  - {id: RV-PL-UMI-NLOS-UPPER, scenario: umi_street_canyon, state: nlos, distance_2d_m: 5000, expected_path_loss_db: 164.5623126504004}

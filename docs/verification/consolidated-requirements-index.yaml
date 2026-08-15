@@ -1,0 +1,101 @@
+schema_version: "1.0"
+capability: consolidated-verification-and-performance
+matrix_scope:
+  mandatory_tier_a_source: docs/requirements/system-requirements.md
+  mandatory_tier_b_source: docs/requirements/dynamic-radio-requirements.md
+  evidence_policy: docs/QUALITY_AND_EVIDENCE_POLICY.md
+  verification_plan: docs/verification/verification-plan.md
+status_vocabulary: [verified, implemented, verified-boundary, deferred-boundary]
+inherited_evidence:
+  - docs/verification/configuration-requirements-index.yaml
+  - docs/verification/traffic-kernel-requirements-index.yaml
+  - docs/verification/radio-link-requirements-index.yaml
+  - docs/verification/nr-capacity-requirements-index.yaml
+  - docs/verification/scheduling-kpi-requirements-index.yaml
+  - docs/verification/dynamic-radio-requirements-index.yaml
+  - docs/verification/experiment-requirements-index.yaml
+verification_evidence:
+  - requirements: [SYS-001, SYS-002]
+    status: implemented
+    implementation:
+      - src/nr_ran_sim/experiments/simulation.py
+      - src/nr_ran_sim/experiments/dynamic_simulation.py
+      - src/nr_ran_sim/config/manifest.py
+    tests:
+      - tests/integration/test_system_simulation.py
+      - tests/integration/test_dynamic_simulation.py
+      - tests/regression/test_approved_scenarios.py
+  - requirements: [SYS-010, MAC-012]
+    status: verified-boundary
+    implementation:
+      - docs/models/model-fidelity-contract.md
+      - docs/mac/scheduling-qos-and-kpis.md
+      - docs/QUALITY_AND_EVIDENCE_POLICY.md
+    tests:
+      - tests/integration/test_repository_contract.py
+  - requirements: [LINK-001, LINK-002, LINK-003, LINK-004, OPS-004, OPS-005]
+    status: verified
+    implementation:
+      - src/nr_ran_sim/radio/link.py
+      - docs/verification/verification-plan.md
+    tests:
+      - tests/reference/test_integrated_link_crosscheck.py
+      - tests/reference/independent_link_oracle.py
+      - tests/reference/data/integrated_link_vector.yaml
+  - requirements: [PROP-001, LINK-001, LINK-002, LINK-010, LINK-011, MAC-002, MAC-003, OPS-003]
+    status: verified
+    implementation:
+      - src/nr_ran_sim/radio/geometry.py
+      - src/nr_ran_sim/radio/link.py
+      - src/nr_ran_sim/radio/capacity.py
+      - src/nr_ran_sim/mac/policies.py
+    tests:
+      - tests/property/test_radio_and_scheduler_properties.py
+  - requirements: [SYS-003, DYN-REP-001, DYN-REP-003, OPS-003]
+    status: verified
+    implementation:
+      - tests/regression/approved_scenarios.yaml
+    tests:
+      - tests/regression/test_approved_scenarios.py
+  - requirements: [EXP-012, OPS-003]
+    status: verified
+    implementation:
+      - benchmarks/performance-workloads.yaml
+      - tools/benchmark_performance.py
+      - src/nr_ran_sim/metadata.py
+    tests:
+      - tests/performance/test_performance_budgets.py
+      - tests/unit/test_errors_observability.py
+  - requirements: [OPS-008, OPS-010]
+    status: verified-boundary
+    implementation:
+      - docs/verification/verification-and-validation-report.md
+      - docs/architecture/adr/0015-validation-and-performance-evidence.md
+    tests:
+      - tests/integration/test_repository_contract.py
+deferred_boundaries:
+  - requirements: [EXT-001]
+    status: deferred-boundary
+    disposition: >-
+      the dynamic-radio layer implements causal lowest-contiguous-PRB activity coupling, not arbitrary per-PRB
+      allocation maps. The unimplemented portion blocks any per-PRB-frequency-selective claim.
+  - requirements: [EXT-002]
+    status: deferred-boundary
+    disposition: >-
+      the dynamic-radio layer implements per-link distance-correlated large-scale shadowing only. Spatially
+      consistent maps, fast fading, effective-SINR compression, and calibrated BLER remain absent.
+  - requirements: [EXT-003]
+    status: deferred-boundary
+    disposition: >-
+      the dynamic-radio layer implements a documented project state machine; complete 3GPP measurement, RRC,
+      radio-link-failure, and signalling procedures remain outside the profile.
+  - requirements: [EXT-004]
+    status: deferred-boundary
+    disposition: >-
+      the dynamic-radio layer implements configured horizontal beam gains and explicit blockage intervals, not
+      antenna arrays, beam training, or a calibrated blockage process.
+  - requirements: [EXT-005]
+    status: deferred-boundary
+    disposition: >-
+      Baseline schedulers are verified; a separate QoS/deadline-aware scheduler remains deferred
+      and cannot silently alter Round Robin, Max-C/I, or Proportional Fair definitions.

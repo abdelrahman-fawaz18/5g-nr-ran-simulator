@@ -1,0 +1,41 @@
+{
+  "assets": [
+    {
+      "path": "hero.svg",
+      "sha256": "bacd4736d98430e09d228135175c9921d279a0268c783c2015001bf97eecd909"
+    },
+    {
+      "path": "scenario-topology.svg",
+      "sha256": "8e02dff9658163ca8155940d98ff9a7fadb25028ff84d4ff4aa797a5ff6c00e1"
+    },
+    {
+      "path": "system-architecture.svg",
+      "sha256": "4563480f9e6098681cda738fdbf301509f5fe6483b96a62e7543bb9ffaa6d676"
+    },
+    {
+      "path": "scheduler-tradeoffs.svg",
+      "sha256": "2ff081ffd4ab8e7a940cfe57ec8322f603c8a7ec6394756ae043b6aa31168a50"
+    },
+    {
+      "path": "load-response.svg",
+      "sha256": "630d6f01ed255d6ece10ad8c3e2a4734e3c30728c070be9ac67138576adb3346"
+    },
+    {
+      "path": "evidence-chain.svg",
+      "sha256": "0e1c659aa5d9b5a85ffb61289304eb366479c4a6e6f2692f9f8e9590bf991311"
+    },
+    {
+      "path": "social-preview.svg",
+      "sha256": "c751a022f5402e243851fbfddd01a36b0ca445b19c3a67a047d0a953b73bcc52"
+    }
+  ],
+  "design_system": "systems-lab-v1",
+  "experiment_sha256": "8ecf900823379132b45bfc574bbbbad76381c8e81fa949baf1a8a3792430a563",
+  "schema_version": "portfolio-visuals-v2",
+  "semantic_sha256": "521ec6219a8a37d85f543d5dbdd05841b45858f3801a47b493940d0fd94c0f13",
+  "source_scenario": "heterogeneous-qos-study.yaml",
+  "source_scenario_file_sha256": "1e1012b32ed53a3d9946f5fa74dd570f8d41e618388c8f131bcb72b6509e7de2",
+  "source_summary": "evidence/scheduler-study-v1/metrics/summary.json",
+  "source_summary_file_sha256": "34a6560f595be317067b2a01bbe71b27d28cc3bb4be5bd8aa2c847bc23d9c590",
+  "source_summary_semantic_sha256": "224cf3ec8dcc4d09b5465dbe8bf0d19f51d0539d041facf459b62c28e5921c87"
+}

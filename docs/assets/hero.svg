@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title desc" data-design-system="systems-lab-v1" data-layout="hero">
+<title id="title">5G NR RAN system-level simulator</title>
+<desc id="desc">A recruiter-facing overview of a deterministic RAN performance engineering platform.</desc>
+<defs>
+<pattern id="engineering-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dce2e8" stroke-width="1"/></pattern>
+</defs>
+<rect width="1600" height="560" fill="#f4f6f8"/>
+<rect width="1600" height="560" fill="url(#engineering-grid)" opacity="0.42"/>
+<rect width="1600" height="14" fill="#0b1b2b"/>
+<rect y="14" width="1600" height="4" fill="#2457d6"/>
+<text x="76" y="72" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#2457d6">PROJECT / RAN PERFORMANCE ENGINEERING</text>
+<text x="76" y="156" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="62" font-weight="800" letter-spacing="0" fill="#0b1b2b">5G NR RAN</text>
+<text x="76" y="222" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="62" font-weight="800" letter-spacing="0" fill="#0b1b2b">System-Level Simulator</text>
+<text x="76" y="276" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="25" font-weight="500" letter-spacing="0" fill="#5f6f80">Deterministic radio, scheduling, QoS and multi-seed experiments</text>
+<text x="76" y="490" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="20" font-weight="500" letter-spacing="0" fill="#5f6f80">Python 3.11-3.13  •  typed configuration  •  Windows + Linux CI</text>
+<g><rect x="76" y="322" width="250" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="76" y="322" width="7" height="46" fill="#2457d6"/><text x="100" y="352" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">3GPP-informed radio</text></g>
+<g><rect x="344" y="322" width="242" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="344" y="322" width="7" height="46" fill="#64748b"/><text x="368" y="352" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">Paired Monte Carlo</text></g>
+<g><rect x="604" y="322" width="250" height="46" rx="2" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/><rect x="604" y="322" width="7" height="46" fill="#16865b"/><text x="628" y="352" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="15" font-weight="700" letter-spacing="0.5" fill="#0b1b2b">Verifiable evidence</text></g>
+<line x1="1320" y1="90" x2="1130" y2="215" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1320" y1="90" x2="1360" y2="250" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1320" y1="90" x2="1530" y2="170" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1130" y1="215" x2="1360" y2="250" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1130" y1="215" x2="1210" y2="420" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1360" y1="250" x2="1530" y2="170" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1360" y1="250" x2="1210" y2="420" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1360" y1="250" x2="1485" y2="420" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1530" y1="170" x2="1485" y2="420" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1210" y1="420" x2="1485" y2="420" stroke="#c4cdd7" stroke-width="2" opacity="0.95"/>
+<line x1="1293" y1="90" x2="1347" y2="90" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1320" y1="63" x2="1320" y2="117" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1320" cy="90" r="18" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<rect x="1316" y="86" width="8" height="8" fill="#2457d6"/>
+<line x1="1107" y1="215" x2="1153" y2="215" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1130" y1="192" x2="1130" y2="238" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1130" cy="215" r="14" fill="#ffffff" stroke="#16865b" stroke-width="3"/>
+<rect x="1126" y="211" width="8" height="8" fill="#16865b"/>
+<line x1="1336" y1="250" x2="1384" y2="250" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1360" y1="226" x2="1360" y2="274" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1360" cy="250" r="15" fill="#ffffff" stroke="#2457d6" stroke-width="3"/>
+<rect x="1356" y="246" width="8" height="8" fill="#2457d6"/>
+<line x1="1508" y1="170" x2="1552" y2="170" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1530" y1="148" x2="1530" y2="192" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1530" cy="170" r="13" fill="#ffffff" stroke="#16865b" stroke-width="3"/>
+<rect x="1526" y="166" width="8" height="8" fill="#16865b"/>
+<line x1="1189" y1="420" x2="1231" y2="420" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1210" y1="399" x2="1210" y2="441" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1210" cy="420" r="12" fill="#ffffff" stroke="#16865b" stroke-width="3"/>
+<rect x="1206" y="416" width="8" height="8" fill="#16865b"/>
+<line x1="1460" y1="420" x2="1510" y2="420" stroke="#c4cdd7" stroke-width="1"/>
+<line x1="1485" y1="395" x2="1485" y2="445" stroke="#c4cdd7" stroke-width="1"/>
+<circle cx="1485" cy="420" r="16" fill="#ffffff" stroke="#16865b" stroke-width="3"/>
+<rect x="1481" y="416" width="8" height="8" fill="#16865b"/>
+<rect x="1112" y="116" width="220" height="86" rx="3" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1112" y="116" width="5" height="86" fill="#2457d6"/>
+<text x="1134" y="154" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="29" font-weight="800" letter-spacing="0" fill="#2457d6">360</text>
+<text x="1134" y="181" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#5f6f80">VERIFIED RUNS</text>
+<rect x="1360" y="288" width="220" height="86" rx="3" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1360" y="288" width="5" height="86" fill="#64748b"/>
+<text x="1382" y="326" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="29" font-weight="800" letter-spacing="0" fill="#64748b">3</text>
+<text x="1382" y="353" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#5f6f80">SCHEDULER POLICIES</text>
+<rect x="1095" y="346" width="220" height="86" rx="3" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1095" y="346" width="5" height="86" fill="#16865b"/>
+<text x="1117" y="384" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="29" font-weight="800" letter-spacing="0" fill="#16865b">14</text>
+<text x="1117" y="411" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#5f6f80">KPI VIEWS</text>
+<rect x="1350" y="458" width="220" height="86" rx="3" fill="#ffffff" opacity="0.96" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1350" y="458" width="5" height="86" fill="#f2a30b"/>
+<text x="1372" y="496" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="29" font-weight="800" letter-spacing="0" fill="#f2a30b">120</text>
+<text x="1372" y="523" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="0.6" fill="#5f6f80">PAIRED SEED GROUPS</text>
+<text x="1568" y="538" text-anchor="end" font-family="Consolas,Courier New,monospace" font-size="14" font-weight="500" letter-spacing="0" fill="#5f6f80">evidence 224cf3ec8dcc</text>
+</svg>

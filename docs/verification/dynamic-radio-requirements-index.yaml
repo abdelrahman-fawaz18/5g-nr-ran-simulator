@@ -1,0 +1,28 @@
+schema_version: "1.0"
+capability: dynamic-radio-mobility-and-fr2
+requirements_source: docs/requirements/dynamic-radio-requirements.md
+entries:
+  - requirements: [DYN-INT-001, DYN-INT-002, DYN-INT-003, DYN-INT-004, DYN-INT-005]
+    implementation: [src/nr_ran_sim/radio/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-CH-001, DYN-CH-002, DYN-CH-003, DYN-CH-004]
+    implementation: [src/nr_ran_sim/config/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py, tests/integration/test_dynamic_replay_process.py]
+  - requirements: [DYN-MOB-001, DYN-MOB-002]
+    implementation: [src/nr_ran_sim/radio/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-HO-001, DYN-HO-002, DYN-HO-003, DYN-HO-004, DYN-HO-005]
+    implementation: [src/nr_ran_sim/radio/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-AVL-001, DYN-AVL-002, DYN-AVL-003, DYN-AVL-004]
+    implementation: [src/nr_ran_sim/radio/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-FR2-001, DYN-FR2-002, DYN-FR2-003, DYN-FR2-004, DYN-FR2-005]
+    implementation: [src/nr_ran_sim/config/normalize.py, src/nr_ran_sim/config/dynamic.py, src/nr_ran_sim/radio/dynamic.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/unit/test_dynamic_radio.py, tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-KPI-001, DYN-KPI-002]
+    implementation: [src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/integration/test_dynamic_simulation.py]
+  - requirements: [DYN-REP-001, DYN-REP-002, DYN-REP-003]
+    implementation: [src/nr_ran_sim/experiments/dynamic_simulation.py, src/nr_ran_sim/cli/main.py]
+    tests: [tests/integration/test_dynamic_simulation.py, tests/integration/test_dynamic_replay_process.py, tests/integration/test_system_simulation.py]

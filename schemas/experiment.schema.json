@@ -1,0 +1,402 @@
+{
+  "$defs": {
+    "AnalysisPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_resamples": {
+          "maximum": 100000,
+          "minimum": 200,
+          "title": "Bootstrap Resamples",
+          "type": "integer"
+        },
+        "comparison_reference_scheduler": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Comparison Reference Scheduler",
+          "type": "string"
+        },
+        "confidence_level": {
+          "default": 0.95,
+          "exclusiveMaximum": 1.0,
+          "minimum": 0.5,
+          "title": "Confidence Level",
+          "type": "number"
+        },
+        "interval_method": {
+          "const": "percentile-bootstrap-v1",
+          "default": "percentile-bootstrap-v1",
+          "title": "Interval Method",
+          "type": "string"
+        },
+        "metrics": {
+          "items": {
+            "$ref": "#/$defs/MetricSelector"
+          },
+          "minItems": 1,
+          "title": "Metrics",
+          "type": "array"
+        }
+      },
+      "required": [
+        "bootstrap_resamples",
+        "comparison_reference_scheduler",
+        "metrics"
+      ],
+      "title": "AnalysisPlan",
+      "type": "object"
+    },
+    "ExecutionPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "failure_policy": {
+          "default": "fail-experiment",
+          "enum": [
+            "retain-and-exclude",
+            "fail-experiment"
+          ],
+          "title": "Failure Policy",
+          "type": "string"
+        },
+        "max_workers": {
+          "default": 1,
+          "maximum": 64,
+          "minimum": 1,
+          "title": "Max Workers",
+          "type": "integer"
+        }
+      },
+      "title": "ExecutionPlan",
+      "type": "object"
+    },
+    "FactorLevel": {
+      "additionalProperties": false,
+      "properties": {
+        "level_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Level Id",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/JsonValue"
+        }
+      },
+      "required": [
+        "level_id",
+        "value"
+      ],
+      "title": "FactorLevel",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "MetricSelector": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregation_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Aggregation Id",
+          "type": "string"
+        },
+        "aggregation_level": {
+          "enum": [
+            "bearer",
+            "ue",
+            "application",
+            "cell",
+            "system"
+          ],
+          "title": "Aggregation Level",
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^[a-z][a-z0-9_]{0,95}$",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "aggregation_level",
+        "aggregation_id"
+      ],
+      "title": "MetricSelector",
+      "type": "object"
+    },
+    "OutputContract": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Artifact Schema Version",
+          "type": "string"
+        },
+        "metric_dataset_schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Metric Dataset Schema Version",
+          "type": "string"
+        },
+        "plot_manifest_schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Plot Manifest Schema Version",
+          "type": "string"
+        },
+        "summary_dataset_schema_version": {
+          "const": "1.0",
+          "default": "1.0",
+          "title": "Summary Dataset Schema Version",
+          "type": "string"
+        }
+      },
+      "title": "OutputContract",
+      "type": "object"
+    },
+    "QuantityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "QuantityInput",
+      "type": "object"
+    },
+    "SchedulerConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "parameters": {
+          "$ref": "#/$defs/SchedulerParameters"
+        },
+        "policy": {
+          "enum": [
+            "round-robin",
+            "max-ci",
+            "proportional-fair"
+          ],
+          "title": "Policy",
+          "type": "string"
+        }
+      },
+      "required": [
+        "policy"
+      ],
+      "title": "SchedulerConfig",
+      "type": "object"
+    },
+    "SchedulerLevel": {
+      "additionalProperties": false,
+      "properties": {
+        "level_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Level Id",
+          "type": "string"
+        },
+        "scheduler": {
+          "$ref": "#/$defs/SchedulerConfig"
+        }
+      },
+      "required": [
+        "level_id",
+        "scheduler"
+      ],
+      "title": "SchedulerLevel",
+      "type": "object"
+    },
+    "SchedulerParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "averaging_alpha": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0.0,
+              "maximum": 1.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Averaging Alpha"
+        },
+        "initial_rate_floor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "SchedulerParameters",
+      "type": "object"
+    },
+    "SeedPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "master_seed": {
+          "title": "Master Seed",
+          "type": "string"
+        },
+        "pairing": {
+          "const": "common-random-numbers-v1",
+          "default": "common-random-numbers-v1",
+          "title": "Pairing",
+          "type": "string"
+        },
+        "replication_ids": {
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "title": "Replication Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "master_seed",
+        "replication_ids"
+      ],
+      "title": "SeedPlan",
+      "type": "object"
+    },
+    "SweepFactor": {
+      "additionalProperties": false,
+      "properties": {
+        "factor_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Factor Id",
+          "type": "string"
+        },
+        "json_pointer": {
+          "maxLength": 300,
+          "minLength": 2,
+          "title": "Json Pointer",
+          "type": "string"
+        },
+        "levels": {
+          "items": {
+            "$ref": "#/$defs/FactorLevel"
+          },
+          "minItems": 2,
+          "title": "Levels",
+          "type": "array"
+        }
+      },
+      "required": [
+        "factor_id",
+        "json_pointer",
+        "levels"
+      ],
+      "title": "SweepFactor",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis": {
+      "$ref": "#/$defs/AnalysisPlan"
+    },
+    "base_scenario": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Base Scenario",
+      "type": "string"
+    },
+    "description": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Description",
+      "type": "string"
+    },
+    "execution": {
+      "$ref": "#/$defs/ExecutionPlan"
+    },
+    "experiment_id": {
+      "pattern": "^[a-z][a-z0-9-]{0,63}$",
+      "title": "Experiment Id",
+      "type": "string"
+    },
+    "output": {
+      "$ref": "#/$defs/OutputContract"
+    },
+    "profile": {
+      "enum": [
+        "smoke",
+        "showcase"
+      ],
+      "title": "Profile",
+      "type": "string"
+    },
+    "scheduler_set": {
+      "items": {
+        "$ref": "#/$defs/SchedulerLevel"
+      },
+      "minItems": 2,
+      "title": "Scheduler Set",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seed_plan": {
+      "$ref": "#/$defs/SeedPlan"
+    },
+    "sweep_factors": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SweepFactor"
+      },
+      "title": "Sweep Factors",
+      "type": "array"
+    },
+    "timing": {
+      "const": "inherit-from-scenario",
+      "default": "inherit-from-scenario",
+      "title": "Timing",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "description",
+    "profile",
+    "base_scenario",
+    "scheduler_set",
+    "seed_plan",
+    "analysis",
+    "execution"
+  ],
+  "title": "ExperimentConfig",
+  "type": "object"
+}

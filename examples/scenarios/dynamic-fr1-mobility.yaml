@@ -1,0 +1,125 @@
+schema_version: "1.0"
+scenario_id: dynamic-fr1-mobility
+description: Compact deterministic verification scene for mobility, handover, and activity coupling
+
+simulation:
+  warmup: {value: 2, unit: ms}
+  measurement: {value: 16, unit: ms}
+  drain: {value: 2, unit: ms}
+
+radio:
+  direction: downlink
+  frequency_range: FR1
+  carrier_frequency: {value: 3.5, unit: GHz}
+  channel_bandwidth: {value: 50, unit: MHz}
+  subcarrier_spacing: {value: 15, unit: kHz}
+  cyclic_prefix: normal
+  layers: 1
+  cqi_table: table1
+  mcs_table: table1
+  target_bler: 0.1
+  implementation_margin: {value: 3, unit: dB}
+  data_re_overhead_fraction: 0.14
+
+models:
+  fidelity_profile: tier-b-fr1-dynamic-v1
+  propagation: 3gpp-tr38901-r18-v18.1.0
+  los_state: explicit
+  shadowing: correlated_dynamic
+  interference: activity-coupled-reuse1-v1
+  link_adaptation: analytical-awgn-gap-v1
+
+topology:
+  scenario: uma
+  coordinate_system: local-cartesian
+  cells:
+    cell-a:
+      position:
+        x: {value: 0, unit: m}
+        y: {value: 0, unit: m}
+        z: {value: 25, unit: m}
+      transmit_power: {value: 38, unit: dBm}
+      antenna_gain: {value: 0, unit: dBi}
+      miscellaneous_loss: {value: 0, unit: dB}
+    cell-b:
+      position:
+        x: {value: 40, unit: m}
+        y: {value: 0, unit: m}
+        z: {value: 25, unit: m}
+      transmit_power: {value: 38, unit: dBm}
+      antenna_gain: {value: 0, unit: dBi}
+      miscellaneous_loss: {value: 0, unit: dB}
+  ue_groups:
+    movers:
+      count: 2
+      explicit_link_states:
+        cell-a: [los, los]
+        cell-b: [los, los]
+      placement:
+        mode: explicit
+        positions:
+          - x: {value: 12, unit: m}
+            y: {value: 0, unit: m}
+            z: {value: 1.5, unit: m}
+          - x: {value: 28, unit: m}
+            y: {value: 0, unit: m}
+            z: {value: 1.5, unit: m}
+        minimum_2d_distance: {value: 10, unit: m}
+      receiver_noise_figure: {value: 7, unit: dB}
+      antenna_gain: {value: 0, unit: dBi}
+      penetration_loss: {value: 0, unit: dB}
+      bearers: [broadband]
+
+traffic_profiles:
+  broadband:
+    source:
+      type: periodic
+      interval: {value: 1, unit: ms}
+      initial_offset: {value: 0, unit: ms}
+    packet_size:
+      type: constant
+      payload: {value: 100, unit: kbit}
+    queue:
+      max_packets: 100
+    deadline: null
+
+scheduler:
+  policy: proportional-fair
+  parameters:
+    averaging_alpha: 0.2
+    initial_rate_floor: {value: 1, unit: kbit/s}
+
+extensions:
+  nr-ran-sim.dynamic-radio:
+    model_version: "1.0"
+    channel:
+      update_interval: {value: 1, unit: ms}
+      shadow_correlation_distance: {value: 10, unit: m}
+      initial_neighbor_load_fraction: 0.5
+    mobility:
+      profile: linear-reflect-v1
+      groups:
+        movers:
+          velocities:
+            - x: {value: 1000, unit: m/s}
+              y: {value: 0, unit: m/s}
+            - x: {value: -1000, unit: m/s}
+              y: {value: 0, unit: m/s}
+          bounds:
+            x_min: {value: 10, unit: m}
+            x_max: {value: 30, unit: m}
+            y_min: {value: -5, unit: m}
+            y_max: {value: 5, unit: m}
+    handover:
+      profile: a3-inspired-long-term-rsrp-v1
+      offset: {value: 0, unit: dB}
+      hysteresis: {value: 0.5, unit: dB}
+      time_to_trigger: {value: 2, unit: ms}
+      interruption: {value: 1, unit: ms}
+      ping_pong_window: {value: 10, unit: ms}
+    availability:
+      profile: sinr-hysteresis-availability-v1
+      outage_threshold: {value: -8, unit: dB}
+      recovery_threshold: {value: -5, unit: dB}
+      outage_time_to_trigger: {value: 2, unit: ms}
+      recovery_time_to_trigger: {value: 2, unit: ms}

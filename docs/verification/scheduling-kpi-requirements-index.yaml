@@ -1,0 +1,102 @@
+schema_version: "1.0"
+capability: scheduling-service-and-kpis
+evidence_level: E1-implemented-and-analytically-tested
+scope_note: >-
+  Deterministic Tier A RR, Max-C/I, PF, queue-service, and KPI behavior is implemented and tested
+  under a static analytical radio profile. This is not receiver-calibrated throughput, BLER/HARQ,
+  load-coupled interference, or multi-replication statistical evidence.
+
+requirements:
+  MAC-001:
+    implementation: [src/nr_ran_sim/mac/models.py, src/nr_ran_sim/mac/policies.py]
+    tests: [tests/unit/test_schedulers.py]
+  MAC-002:
+    implementation: [src/nr_ran_sim/mac/models.py]
+    tests: [tests/unit/test_schedulers.py, tests/integration/test_system_simulation.py]
+  MAC-003:
+    implementation: [src/nr_ran_sim/mac/models.py, src/nr_ran_sim/mac/policies.py]
+    tests: [tests/unit/test_schedulers.py]
+  MAC-004:
+    implementation: [src/nr_ran_sim/mac/policies.py]
+    tests: [tests/unit/test_schedulers.py]
+  MAC-005:
+    implementation: [src/nr_ran_sim/mac/policies.py]
+    tests: [tests/unit/test_schedulers.py]
+  MAC-006:
+    implementation: [src/nr_ran_sim/mac/policies.py]
+    tests: [tests/unit/test_schedulers.py, tests/integration/test_system_simulation.py]
+  MAC-007:
+    implementation: [src/nr_ran_sim/mac/policies.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/integration/test_system_simulation.py]
+  MAC-008:
+    implementation: [src/nr_ran_sim/experiments/identity.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/integration/test_system_simulation.py]
+  MAC-009:
+    implementation: [src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py, tests/integration/test_system_simulation.py]
+  MAC-010:
+    implementation: [src/nr_ran_sim/metrics/records.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/unit/test_kpis.py, tests/integration/test_system_simulation.py]
+  MAC-011:
+    implementation: [docs/mac/scheduling-qos-and-kpis.md]
+    tests: [tests/integration/test_repository_contract.py]
+  QOS-001:
+    implementation: [src/nr_ran_sim/traffic/queue.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/unit/test_traffic_queue.py, tests/integration/test_system_simulation.py]
+  QOS-002:
+    implementation: [src/nr_ran_sim/traffic/queue.py, src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_traffic_queue.py, tests/unit/test_kpis.py]
+  QOS-010:
+    implementation: [src/nr_ran_sim/traffic/sources.py, src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/integration/test_system_simulation.py]
+  KPI-001:
+    implementation: [src/nr_ran_sim/metrics/records.py]
+    tests: [tests/integration/test_system_simulation.py]
+  KPI-002:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-003:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-004:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-005:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-006:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-007:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py, tests/integration/test_system_simulation.py]
+  KPI-008:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-009:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py]
+  KPI-010:
+    implementation: [src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/integration/test_system_simulation.py]
+  KPI-012:
+    implementation: [src/nr_ran_sim/metrics/records.py, src/nr_ran_sim/metrics/kpis.py]
+    tests: [tests/unit/test_kpis.py, tests/integration/test_system_simulation.py]
+  EXP-002:
+    implementation: [src/nr_ran_sim/experiments/identity.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/integration/test_system_simulation.py]
+  EXP-003:
+    implementation: [src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/integration/test_system_simulation.py]
+  EXP-006:
+    implementation: [src/nr_ran_sim/experiments/identity.py, src/nr_ran_sim/experiments/simulation.py]
+    tests: [tests/integration/test_system_simulation.py]
+  OPS-002:
+    implementation: [src/nr_ran_sim/mac, src/nr_ran_sim/metrics, src/nr_ran_sim/experiments/simulation.py]
+    tests: [ruff format, ruff check, mypy]
+  OPS-003:
+    implementation: [tests/unit, tests/integration]
+    tests: [pytest with branch coverage]
+  OPS-008:
+    implementation: [docs/mac/scheduling-qos-and-kpis.md]
+    tests: [tests/integration/test_repository_contract.py]

@@ -1,0 +1,100 @@
+schema_version: "1.0"
+scenario_id: traffic-queue-smoke
+description: Small deterministic scenario for traffic, queue, RNG, and replay verification
+
+simulation:
+  warmup: {value: 20, unit: us}
+  measurement: {value: 100, unit: us}
+  drain: {value: 50, unit: us}
+
+radio:
+  direction: downlink
+  frequency_range: FR1
+  carrier_frequency: {value: 3.5, unit: GHz}
+  channel_bandwidth: {value: 20, unit: MHz}
+  subcarrier_spacing: {value: 30, unit: kHz}
+  cyclic_prefix: normal
+  layers: 1
+  cqi_table: table1
+  mcs_table: table1
+  target_bler: 0.1
+  implementation_margin: {value: 3, unit: dB}
+  data_re_overhead_fraction: 0.14
+
+models:
+  fidelity_profile: tier-a-fr1-static-v1
+  propagation: 3gpp-tr38901-r18-v18.1.0
+  los_state: explicit
+  shadowing: "off"
+  interference: noise_limited-v1
+  link_adaptation: analytical-awgn-gap-v1
+
+topology:
+  scenario: uma
+  coordinate_system: local-cartesian
+  cells:
+    cell-a:
+      position:
+        x: {value: 0, unit: m}
+        y: {value: 0, unit: m}
+        z: {value: 25, unit: m}
+      transmit_power: {value: 46, unit: dBm}
+      antenna_gain: {value: 0, unit: dBi}
+      miscellaneous_loss: {value: 0, unit: dB}
+  ue_groups:
+    smoke-users:
+      count: 1
+      explicit_link_states:
+        cell-a: [los]
+      placement:
+        mode: uniform_rectangle
+        x_min: {value: 100, unit: m}
+        x_max: {value: 101, unit: m}
+        y_min: {value: 0, unit: m}
+        y_max: {value: 1, unit: m}
+        height: {value: 1.5, unit: m}
+      receiver_noise_figure: {value: 7, unit: dB}
+      antenna_gain: {value: 0, unit: dBi}
+      bearers: [periodic-control, poisson-data, uniform-telemetry]
+
+traffic_profiles:
+  periodic-control:
+    source:
+      type: periodic
+      interval: {value: 10, unit: us}
+      initial_offset: {value: 0, unit: us}
+    packet_size:
+      type: constant
+      payload: {value: 256, unit: bit}
+    queue:
+      max_packets: 32
+      max_payload: {value: 8192, unit: bit}
+    deadline: {value: 30, unit: us}
+  poisson-data:
+    source:
+      type: poisson
+      mean_interarrival: {value: 15, unit: us}
+    packet_size:
+      type: discrete_uniform
+      minimum_payload: {value: 800, unit: bit}
+      maximum_payload: {value: 1200, unit: bit}
+    queue:
+      max_packets: 32
+    deadline: null
+  uniform-telemetry:
+    source:
+      type: bounded_uniform
+      minimum_interarrival: {value: 12, unit: us}
+      maximum_interarrival: {value: 18, unit: us}
+    packet_size:
+      type: constant
+      payload: {value: 128, unit: bit}
+    queue:
+      max_payload: {value: 4096, unit: bit}
+    deadline: {value: 40, unit: us}
+
+scheduler:
+  policy: round-robin
+  parameters: {}
+
+extensions: {}

@@ -1,0 +1,102 @@
+schema_version: "1.0"
+capability: deterministic-kernel-and-traffic
+evidence_level: E1
+scope_note: >-
+  This index covers deterministic kernel and traffic mechanics. Radio propagation, link capacity,
+  scheduler policy, resource allocation, and performance KPI requirements are owned by their
+  dedicated capability indexes.
+
+requirements:
+  SYS-003:
+    implementation: [src/nr_ran_sim/kernel/trace.py, src/nr_ran_sim/traffic/simulation.py]
+    tests: [tests/integration/test_traffic_mechanics.py, tests/integration/test_replay_process.py]
+  SYS-005:
+    implementation: [src/nr_ran_sim/domain, src/nr_ran_sim/traffic/commands.py]
+    tests: [tests/unit/test_domain_entities.py, tests/unit/test_traffic_queue.py]
+  SYS-007:
+    implementation: [src/nr_ran_sim/domain/identifiers.py, src/nr_ran_sim/kernel/events.py]
+    tests: [tests/unit/test_domain_entities.py, tests/unit/test_kernel.py]
+  SYS-008:
+    implementation: [src/nr_ran_sim/domain/packets.py, src/nr_ran_sim/traffic/sources.py]
+    tests: [tests/unit/test_traffic_queue.py, tests/unit/test_traffic_sources.py]
+  SYS-009:
+    implementation: [src/nr_ran_sim/domain, src/nr_ran_sim/kernel, src/nr_ran_sim/traffic]
+    tests: [tests/integration/test_repository_contract.py]
+  TIME-001:
+    implementation: [src/nr_ran_sim/kernel/events.py, src/nr_ran_sim/kernel/engine.py]
+    tests: [tests/unit/test_kernel.py]
+  TIME-002:
+    implementation: [src/nr_ran_sim/traffic/simulation.py]
+    tests: [tests/integration/test_traffic_mechanics.py]
+  TIME-004:
+    implementation: [src/nr_ran_sim/kernel/events.py, src/nr_ran_sim/kernel/engine.py]
+    tests: [tests/unit/test_kernel.py]
+  TIME-005:
+    implementation: [src/nr_ran_sim/kernel/events.py]
+    tests: [tests/unit/test_kernel.py, tests/integration/test_traffic_mechanics.py]
+  TIME-006:
+    implementation: [src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py, tests/integration/test_traffic_mechanics.py]
+  TIME-007:
+    implementation: [src/nr_ran_sim/kernel/events.py]
+    tests: [tests/unit/test_kernel.py]
+  TIME-008:
+    implementation: [src/nr_ran_sim/traffic/sources.py, src/nr_ran_sim/traffic/simulation.py]
+    tests: [tests/unit/test_traffic_sources.py, tests/integration/test_traffic_mechanics.py]
+  TIME-009:
+    implementation: [src/nr_ran_sim/kernel/engine.py, src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_kernel.py, tests/unit/test_traffic_queue.py]
+  MAC-009:
+    implementation: [src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-001:
+    implementation: [src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-002:
+    implementation: [src/nr_ran_sim/domain/packets.py, src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-003:
+    implementation: [src/nr_ran_sim/domain/packets.py, src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-004:
+    implementation: [src/nr_ran_sim/traffic/sources.py]
+    tests: [tests/unit/test_traffic_sources.py]
+  QOS-005:
+    implementation: [src/nr_ran_sim/experiments/seeds.py, src/nr_ran_sim/traffic/sources.py]
+    tests: [tests/unit/test_seeds.py, tests/unit/test_traffic_sources.py]
+  QOS-006:
+    implementation: [src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-007:
+    implementation: [src/nr_ran_sim/domain/packets.py, src/nr_ran_sim/traffic/queue.py]
+    tests: [tests/unit/test_traffic_queue.py]
+  QOS-008:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/config/normalize.py]
+    tests: [tests/unit/test_models.py, tests/unit/test_normalize.py]
+  QOS-009:
+    implementation: [src/nr_ran_sim/config/models.py, src/nr_ran_sim/traffic/sources.py]
+    tests: [tests/unit/test_normalize.py, tests/unit/test_traffic_sources.py]
+  QOS-010:
+    implementation: [src/nr_ran_sim/traffic/sources.py, src/nr_ran_sim/traffic/simulation.py]
+    tests: [tests/unit/test_traffic_sources.py, tests/integration/test_traffic_mechanics.py]
+  EXP-002:
+    implementation: [src/nr_ran_sim/experiments/seeds.py]
+    tests: [tests/unit/test_seeds.py, tests/unit/test_traffic_sources.py]
+  EXP-003:
+    implementation: [src/nr_ran_sim/experiments/seeds.py, src/nr_ran_sim/experiments/identity.py]
+    tests: [tests/unit/test_seeds.py, tests/unit/test_run_identity.py]
+  EXP-004:
+    implementation: [src/nr_ran_sim/experiments/seeds.py]
+    tests: [tests/unit/test_traffic_sources.py]
+  EXP-006:
+    implementation: [src/nr_ran_sim/experiments/identity.py]
+    tests: [tests/unit/test_run_identity.py]
+  OPS-002:
+    implementation: [pyproject.toml, uv.lock]
+    tests: [ruff format, ruff check, mypy]
+  OPS-003:
+    implementation: [tests/unit, tests/integration]
+    tests: [pytest with branch coverage]
+  OPS-008:
+    implementation: [docs/mechanics/deterministic-kernel-and-traffic.md]
+    tests: [tests/integration/test_repository_contract.py]

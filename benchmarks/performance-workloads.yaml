@@ -1,0 +1,32 @@
+schema_version: "1.0"
+suite_id: representative-performance-v1
+methodology: docs/architecture/adr/0015-validation-and-performance-evidence.md
+master_seed: "0x11111111111111111111111111111111"
+replication_id: 0
+code_revision: "9999999999999999999999999999999999999999"
+warmup_runs: 1
+workloads:
+  - id: static-tier-a-smoke
+    scenario: examples/scenarios/scheduler-qos-smoke.yaml
+    runner: static
+    expected_ue_count: 2
+    runtime_budget_seconds: 1.0
+    python_peak_memory_budget_mib: 16.0
+  - id: dynamic-fr1-smoke
+    scenario: examples/scenarios/dynamic-fr1-mobility.yaml
+    runner: dynamic
+    expected_ue_count: 2
+    runtime_budget_seconds: 2.0
+    python_peak_memory_budget_mib: 32.0
+  - id: static-tier-a-12ue
+    scenario: benchmarks/scenarios/static-12ue.yaml
+    runner: static
+    expected_ue_count: 12
+    runtime_budget_seconds: 2.0
+    python_peak_memory_budget_mib: 32.0
+  - id: fr2-availability-smoke
+    scenario: examples/scenarios/fr2-mobility-availability.yaml
+    runner: dynamic
+    expected_ue_count: 1
+    runtime_budget_seconds: 3.0
+    python_peak_memory_budget_mib: 48.0

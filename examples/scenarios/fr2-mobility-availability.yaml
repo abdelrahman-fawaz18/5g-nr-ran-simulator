@@ -1,0 +1,129 @@
+schema_version: "1.0"
+scenario_id: fr2-mobility-availability
+description: Bounded FR2-1 beam and explicit blockage availability demonstration
+
+simulation:
+  warmup: {value: 2, unit: ms}
+  measurement: {value: 8, unit: ms}
+  drain: {value: 2, unit: ms}
+
+radio:
+  direction: downlink
+  frequency_range: FR2-1
+  carrier_frequency: {value: 28, unit: GHz}
+  channel_bandwidth: {value: 100, unit: MHz}
+  subcarrier_spacing: {value: 120, unit: kHz}
+  cyclic_prefix: normal
+  layers: 1
+  cqi_table: table1
+  mcs_table: table1
+  target_bler: 0.1
+  implementation_margin: {value: 3, unit: dB}
+  data_re_overhead_fraction: 0.14
+
+models:
+  fidelity_profile: tier-b-fr2-availability-v1
+  propagation: 3gpp-tr38901-r18-v18.1.0
+  los_state: explicit
+  shadowing: correlated_dynamic
+  interference: activity-coupled-reuse1-v1
+  link_adaptation: analytical-awgn-gap-v1
+
+topology:
+  scenario: umi_street_canyon
+  coordinate_system: local-cartesian
+  cells:
+    cell-a:
+      position:
+        x: {value: 0, unit: m}
+        y: {value: 0, unit: m}
+        z: {value: 10, unit: m}
+      transmit_power: {value: 30, unit: dBm}
+      antenna_gain: {value: 0, unit: dBi}
+      miscellaneous_loss: {value: 0, unit: dB}
+  ue_groups:
+    pedestrian:
+      count: 1
+      explicit_link_states:
+        cell-a: [los]
+      placement:
+        mode: explicit
+        positions:
+          - x: {value: 10, unit: m}
+            y: {value: 0, unit: m}
+            z: {value: 1.5, unit: m}
+        minimum_2d_distance: {value: 10, unit: m}
+      receiver_noise_figure: {value: 7, unit: dB}
+      antenna_gain: {value: 0, unit: dBi}
+      penetration_loss: {value: 0, unit: dB}
+      bearers: [broadband]
+
+traffic_profiles:
+  broadband:
+    source:
+      type: periodic
+      interval: {value: 1, unit: ms}
+      initial_offset: {value: 0, unit: ms}
+    packet_size:
+      type: constant
+      payload: {value: 50, unit: kbit}
+    queue:
+      max_packets: 100
+    deadline: null
+
+scheduler:
+  policy: round-robin
+  parameters: {}
+
+extensions:
+  nr-ran-sim.dynamic-radio:
+    model_version: "1.0"
+    channel:
+      update_interval: {value: 1, unit: ms}
+      shadow_correlation_distance: {value: 5, unit: m}
+      initial_neighbor_load_fraction: 0
+    mobility:
+      profile: linear-reflect-v1
+      groups:
+        pedestrian:
+          velocities:
+            - x: {value: 1, unit: m/s}
+              y: {value: 0, unit: m/s}
+          bounds:
+            x_min: {value: 10, unit: m}
+            x_max: {value: 20, unit: m}
+            y_min: {value: -2, unit: m}
+            y_max: {value: 2, unit: m}
+    handover:
+      profile: a3-inspired-long-term-rsrp-v1
+      offset: {value: 0, unit: dB}
+      hysteresis: {value: 1, unit: dB}
+      time_to_trigger: {value: 1, unit: ms}
+      interruption: {value: 1, unit: ms}
+      ping_pong_window: {value: 10, unit: ms}
+    availability:
+      profile: sinr-hysteresis-availability-v1
+      outage_threshold: {value: 10, unit: dB}
+      recovery_threshold: {value: 15, unit: dB}
+      outage_time_to_trigger: {value: 1, unit: ms}
+      recovery_time_to_trigger: {value: 1, unit: ms}
+    fr2:
+      beam_codebooks:
+        cell-a:
+          - beam_id: east
+            boresight_azimuth: {value: 0, unit: deg}
+            peak_gain: {value: 18, unit: dB}
+            half_power_beamwidth: {value: 30, unit: deg}
+            sidelobe_gain: {value: -10, unit: dB}
+          - beam_id: west
+            boresight_azimuth: {value: 180, unit: deg}
+            peak_gain: {value: 18, unit: dB}
+            half_power_beamwidth: {value: 30, unit: deg}
+            sidelobe_gain: {value: -10, unit: dB}
+      blockage_intervals:
+        - ue_group_id: pedestrian
+          ue_ordinal: 0
+          cell_id: cell-a
+          start: {value: 4, unit: ms}
+          end: {value: 8, unit: ms}
+          excess_loss: {value: 45, unit: dB}

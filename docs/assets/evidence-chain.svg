@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="660" viewBox="0 0 1600 660" role="img" aria-labelledby="title desc" data-design-system="systems-lab-v1" data-layout="figure">
+<title id="title">Evidence and verification chain</title>
+<desc id="desc">The accepted experiment is transformed through traceable, checksum-verified stages.</desc>
+<defs>
+<pattern id="engineering-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dce2e8" stroke-width="1"/></pattern>
+</defs>
+<rect width="1600" height="660" fill="#f4f6f8"/>
+<rect width="1600" height="660" fill="url(#engineering-grid)" opacity="0.42"/>
+<rect width="1600" height="14" fill="#0b1b2b"/>
+<rect y="14" width="1600" height="4" fill="#2457d6"/>
+<text x="70" y="72" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#2457d6">FIG 05 / EVIDENCE CHAIN</text>
+<text x="70" y="126" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="40" font-weight="750" letter-spacing="0" fill="#0b1b2b">Every result remains traceable to saved run records</text>
+<rect x="70" y="205" width="300" height="230" rx="3" fill="#ffffff" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="70" y="205" width="300" height="8" fill="#2457d6"/>
+<text x="98" y="291" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="46" font-weight="800" letter-spacing="0" fill="#2457d6">360</text>
+<text x="98" y="333" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="700" letter-spacing="0" fill="#0b1b2b">completed runs</text>
+<text x="98" y="376" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">12 variants * 30 seeds</text>
+<text x="98" y="407" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="650" letter-spacing="1" fill="#2457d6">checksum-linked</text>
+<g><line x1="370" y1="320" x2="420" y2="320" stroke="#c4cdd7" stroke-width="3"/><path d="M 409.6 326.0 L 420.0 320.0 L 409.6 314.0" fill="none" stroke="#2457d6" stroke-width="3" stroke-linejoin="miter"/></g>
+<rect x="430" y="205" width="300" height="230" rx="3" fill="#ffffff" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="430" y="205" width="300" height="8" fill="#16865b"/>
+<text x="458" y="291" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="46" font-weight="800" letter-spacing="0" fill="#16865b">5,040</text>
+<text x="458" y="333" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="700" letter-spacing="0" fill="#0b1b2b">retained KPI rows</text>
+<text x="458" y="376" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">14 views per run</text>
+<text x="458" y="407" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="650" letter-spacing="1" fill="#16865b">checksum-linked</text>
+<g><line x1="730" y1="320" x2="780" y2="320" stroke="#c4cdd7" stroke-width="3"/><path d="M 769.6 326.0 L 780.0 320.0 L 769.6 314.0" fill="none" stroke="#2457d6" stroke-width="3" stroke-linejoin="miter"/></g>
+<rect x="790" y="205" width="300" height="230" rx="3" fill="#ffffff" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="790" y="205" width="300" height="8" fill="#64748b"/>
+<text x="818" y="291" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="46" font-weight="800" letter-spacing="0" fill="#64748b">168 + 112</text>
+<text x="818" y="333" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="700" letter-spacing="0" fill="#0b1b2b">statistical outputs</text>
+<text x="818" y="376" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">estimates + paired effects</text>
+<text x="818" y="407" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="650" letter-spacing="1" fill="#64748b">checksum-linked</text>
+<g><line x1="1090" y1="320" x2="1140" y2="320" stroke="#c4cdd7" stroke-width="3"/><path d="M 1129.6 326.0 L 1140.0 320.0 L 1129.6 314.0" fill="none" stroke="#2457d6" stroke-width="3" stroke-linejoin="miter"/></g>
+<rect x="1150" y="205" width="300" height="230" rx="3" fill="#ffffff" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<rect x="1150" y="205" width="300" height="8" fill="#f2a30b"/>
+<text x="1178" y="291" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="46" font-weight="800" letter-spacing="0" fill="#f2a30b">PASS</text>
+<text x="1178" y="333" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="21" font-weight="700" letter-spacing="0" fill="#0b1b2b">integrity verification</text>
+<text x="1178" y="376" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">identities • checksums • lineage</text>
+<text x="1178" y="407" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="14" font-weight="650" letter-spacing="1" fill="#f2a30b">checksum-linked</text>
+<rect x="70" y="485" width="1460" height="105" rx="3" fill="#e8edf2" opacity="1.0" stroke="#c4cdd7" stroke-width="1.5"/>
+<text x="108" y="530" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="34" font-weight="800" letter-spacing="0" fill="#2457d6">347</text>
+<text x="108" y="564" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">automated tests</text>
+<line x1="330" y1="505" x2="330" y2="570" stroke="#c4cdd7" stroke-width="1.5" opacity="1.0"/>
+<text x="385" y="530" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="34" font-weight="800" letter-spacing="0" fill="#16865b">&gt;=90%</text>
+<text x="385" y="564" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">branch coverage gate</text>
+<line x1="660" y1="505" x2="660" y2="570" stroke="#c4cdd7" stroke-width="1.5" opacity="1.0"/>
+<text x="715" y="530" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="34" font-weight="800" letter-spacing="0" fill="#64748b">4-platform</text>
+<text x="715" y="564" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">Windows/Linux * Python 3.11/3.13</text>
+<line x1="1090" y1="505" x2="1090" y2="570" stroke="#c4cdd7" stroke-width="1.5" opacity="1.0"/>
+<text x="1145" y="530" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="34" font-weight="800" letter-spacing="0" fill="#f2a30b">120/120</text>
+<text x="1145" y="564" text-anchor="start" font-family="Arial Narrow,Arial,Segoe UI,sans-serif" font-size="16" font-weight="500" letter-spacing="0" fill="#5f6f80">common-random-number groups</text>
+<text x="1530" y="634" text-anchor="end" font-family="Consolas,Courier New,monospace" font-size="14" font-weight="500" letter-spacing="0" fill="#5f6f80">summary 224cf3ec8dcc</text>
+</svg>

@@ -1,0 +1,21 @@
+schema_version: "1.0"
+vector_family: ts38214-transport-block-size
+source:
+  document: 3GPP TS 38.214
+  version: 18.9.0
+  release: 18
+  location: Clause 5.1.3.2 and Table 5.1.3.2-1
+  url: https://www.etsi.org/deliver/etsi_ts/138200_138299/138214/18.09.00_60/ts_138214v180900p.pdf
+calculation:
+  method: separately implemented exact-rational calculator in tests/reference/test_capacity_reference.py
+  reviewed_date: "2026-08-13"
+vectors:
+  - {id: RV-TBS-MINIMUM, allocated_prbs: 1, data_re_per_prb: 24, mcs_index: 0, modulation_order: 2, code_rate_x1024: 120, expected_branch: small-table, expected_n_info: "45/8", expected_quantized_n_info_bits: 24, expected_code_blocks: 1, expected_tbs_bits: 24}
+  - {id: RV-TBS-SMALL-INTERIOR, allocated_prbs: 10, data_re_per_prb: 100, mcs_index: 4, modulation_order: 2, code_rate_x1024: 308, expected_branch: small-table, expected_n_info: "9625/16", expected_quantized_n_info_bits: 600, expected_code_blocks: 1, expected_tbs_bits: 608}
+  - {id: RV-TBS-SMALL-TABLE-GAP, allocated_prbs: 10, data_re_per_prb: 100, mcs_index: 13, modulation_order: 4, code_rate_x1024: 490, expected_branch: small-table, expected_n_info: "30625/16", expected_quantized_n_info_bits: 1904, expected_code_blocks: 1, expected_tbs_bits: 1928}
+  - {id: RV-TBS-BELOW-3824, allocated_prbs: 8, data_re_per_prb: 86, mcs_index: 28, modulation_order: 6, code_rate_x1024: 948, expected_branch: small-table, expected_n_info: "30573/8", expected_quantized_n_info_bits: 3808, expected_code_blocks: 1, expected_tbs_bits: 3824}
+  - {id: RV-TBS-ABOVE-3824, allocated_prbs: 5, data_re_per_prb: 138, mcs_index: 28, modulation_order: 6, code_rate_x1024: 948, expected_branch: large, expected_n_info: "245295/64", expected_quantized_n_info_bits: 3840, expected_code_blocks: 1, expected_tbs_bits: 3840}
+  - {id: RV-TBS-LARGE-LOW-RATE, allocated_prbs: 110, data_re_per_prb: 150, mcs_index: 0, modulation_order: 2, code_rate_x1024: 120, expected_branch: large-low-rate, expected_n_info: "61875/16", expected_quantized_n_info_bits: 3840, expected_code_blocks: 2, expected_tbs_bits: 3848}
+  - {id: RV-TBS-LARGE-UNSEGMENTED, allocated_prbs: 20, data_re_per_prb: 100, mcs_index: 13, modulation_order: 4, code_rate_x1024: 490, expected_branch: large, expected_n_info: "30625/8", expected_quantized_n_info_bits: 3840, expected_code_blocks: 1, expected_tbs_bits: 3840}
+  - {id: RV-TBS-LARGE-SEGMENTED, allocated_prbs: 20, data_re_per_prb: 100, mcs_index: 28, modulation_order: 6, code_rate_x1024: 948, expected_branch: large-segmented, expected_n_info: "88875/8", expected_quantized_n_info_bits: 11008, expected_code_blocks: 2, expected_tbs_bits: 11016}
+  - {id: RV-TBS-FULL-FR1-GRID, allocated_prbs: 273, data_re_per_prb: 144, mcs_index: 28, modulation_order: 6, code_rate_x1024: 948, expected_branch: large-segmented, expected_n_info: "1746927/8", expected_quantized_n_info_bits: 217088, expected_code_blocks: 26, expected_tbs_bits: 217128}

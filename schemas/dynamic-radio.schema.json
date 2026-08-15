@@ -1,0 +1,372 @@
+{
+  "$defs": {
+    "AvailabilityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "outage_threshold": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "outage_time_to_trigger": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "profile": {
+          "const": "sinr-hysteresis-availability-v1",
+          "title": "Profile",
+          "type": "string"
+        },
+        "recovery_threshold": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "recovery_time_to_trigger": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "profile",
+        "outage_threshold",
+        "recovery_threshold",
+        "outage_time_to_trigger",
+        "recovery_time_to_trigger"
+      ],
+      "title": "AvailabilityInput",
+      "type": "object"
+    },
+    "BeamInput": {
+      "additionalProperties": false,
+      "properties": {
+        "beam_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Beam Id",
+          "type": "string"
+        },
+        "boresight_azimuth": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "half_power_beamwidth": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "peak_gain": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "sidelobe_gain": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "beam_id",
+        "boresight_azimuth",
+        "peak_gain",
+        "half_power_beamwidth",
+        "sidelobe_gain"
+      ],
+      "title": "BeamInput",
+      "type": "object"
+    },
+    "BlockageIntervalInput": {
+      "additionalProperties": false,
+      "properties": {
+        "cell_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Cell Id",
+          "type": "string"
+        },
+        "end": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "excess_loss": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "start": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "ue_group_id": {
+          "pattern": "^[a-z][a-z0-9-]{0,63}$",
+          "title": "Ue Group Id",
+          "type": "string"
+        },
+        "ue_ordinal": {
+          "minimum": 0,
+          "title": "Ue Ordinal",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ue_group_id",
+        "ue_ordinal",
+        "cell_id",
+        "start",
+        "end",
+        "excess_loss"
+      ],
+      "title": "BlockageIntervalInput",
+      "type": "object"
+    },
+    "ChannelEvolutionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "initial_neighbor_load_fraction": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Initial Neighbor Load Fraction"
+        },
+        "shadow_correlation_distance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/QuantityInput"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "update_interval": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "update_interval",
+        "initial_neighbor_load_fraction"
+      ],
+      "title": "ChannelEvolutionInput",
+      "type": "object"
+    },
+    "Fr2AvailabilityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "beam_codebooks": {
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z][a-z0-9-]{0,63}$": {
+              "items": {
+                "$ref": "#/$defs/BeamInput"
+              },
+              "type": "array"
+            }
+          },
+          "title": "Beam Codebooks",
+          "type": "object"
+        },
+        "blockage_intervals": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/BlockageIntervalInput"
+          },
+          "title": "Blockage Intervals",
+          "type": "array"
+        }
+      },
+      "required": [
+        "beam_codebooks"
+      ],
+      "title": "Fr2AvailabilityInput",
+      "type": "object"
+    },
+    "GroupMotionInput": {
+      "additionalProperties": false,
+      "properties": {
+        "bounds": {
+          "$ref": "#/$defs/MotionBoundsInput"
+        },
+        "velocities": {
+          "items": {
+            "$ref": "#/$defs/VelocityInput"
+          },
+          "minItems": 1,
+          "title": "Velocities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "velocities",
+        "bounds"
+      ],
+      "title": "GroupMotionInput",
+      "type": "object"
+    },
+    "HandoverInput": {
+      "additionalProperties": false,
+      "properties": {
+        "hysteresis": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "interruption": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "offset": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "ping_pong_window": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "profile": {
+          "const": "a3-inspired-long-term-rsrp-v1",
+          "title": "Profile",
+          "type": "string"
+        },
+        "time_to_trigger": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "profile",
+        "offset",
+        "hysteresis",
+        "time_to_trigger",
+        "interruption",
+        "ping_pong_window"
+      ],
+      "title": "HandoverInput",
+      "type": "object"
+    },
+    "MobilityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "groups": {
+          "minProperties": 1,
+          "patternProperties": {
+            "^[a-z][a-z0-9-]{0,63}$": {
+              "$ref": "#/$defs/GroupMotionInput"
+            }
+          },
+          "title": "Groups",
+          "type": "object"
+        },
+        "profile": {
+          "const": "linear-reflect-v1",
+          "title": "Profile",
+          "type": "string"
+        }
+      },
+      "required": [
+        "profile",
+        "groups"
+      ],
+      "title": "MobilityInput",
+      "type": "object"
+    },
+    "MotionBoundsInput": {
+      "additionalProperties": false,
+      "properties": {
+        "x_max": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "x_min": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y_max": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y_min": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "x_min",
+        "x_max",
+        "y_min",
+        "y_max"
+      ],
+      "title": "MotionBoundsInput",
+      "type": "object"
+    },
+    "QuantityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "unit": {
+          "maxLength": 16,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "pattern": "^(?!^[-+.]*$)[+-]?0*\\d*\\.?\\d*$",
+              "type": "string"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "QuantityInput",
+      "type": "object"
+    },
+    "VelocityInput": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "y": {
+          "$ref": "#/$defs/QuantityInput"
+        },
+        "z": {
+          "$ref": "#/$defs/QuantityInput"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "VelocityInput",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "availability": {
+      "$ref": "#/$defs/AvailabilityInput"
+    },
+    "channel": {
+      "$ref": "#/$defs/ChannelEvolutionInput"
+    },
+    "fr2": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Fr2AvailabilityInput"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "handover": {
+      "$ref": "#/$defs/HandoverInput"
+    },
+    "mobility": {
+      "$ref": "#/$defs/MobilityInput"
+    },
+    "model_version": {
+      "const": "1.0",
+      "title": "Model Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "model_version",
+    "channel",
+    "mobility",
+    "handover",
+    "availability"
+  ],
+  "title": "DynamicRadioInput",
+  "type": "object"
+}

@@ -1,0 +1,89 @@
+{
+  "bundle_semantic_sha256": "0cd57c3b9155bcba6a3e58b26882620e24bd2c82aa1c9e9232a3b411fe666c04",
+  "code_revision": "6ef5c1dfdd773887060cf5af08c58de4cb4b8d96",
+  "completed_at_utc": "2026-08-14T06:29:45.494113Z",
+  "completeness": {
+    "duplicate_run_ids": 0,
+    "expected_runs": 360,
+    "failed_runs": 0,
+    "missing_runs": 0,
+    "status": "complete",
+    "successful_runs": 360
+  },
+  "environment": {
+    "byteorder": "little",
+    "dependencies": {
+      "PyYAML": "6.0.3",
+      "numpy": "2.4.6",
+      "pint": "0.25.3",
+      "pydantic": "2.13.4"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.7",
+    "python_implementation": "CPython",
+    "simulator_version": "0.1.0"
+  },
+  "execution": {
+    "failure_policy": "fail-experiment",
+    "max_workers": 8,
+    "parallelism": "isolated-thread-workers-v1"
+  },
+  "experiment_id": "scheduler-performance-study",
+  "experiment_sha256": "8ecf900823379132b45bfc574bbbbad76381c8e81fa949baf1a8a3792430a563",
+  "full_bundle_distribution": {
+    "included_in_snapshot": false,
+    "policy": "versioned release asset",
+    "source_run_count": 360
+  },
+  "metric_dataset": {
+    "file_sha256": "884211bd4ea3575d68e8c644ad89a486ccb44980faa7e8ac9b57c1a50a76db90",
+    "path": "metrics/replications.json",
+    "semantic_sha256": "6fe35f1994e96643a2670079b6576cd916065716b6eddc103eafb3e907c0a850"
+  },
+  "pairing_checks": {
+    "checked_groups": 120,
+    "method": "common-random-numbers-v1",
+    "status": "pass",
+    "violations": 0
+  },
+  "profile": "showcase",
+  "schema_version": "1.0",
+  "seed_plan": {
+    "master_seed": "0x10101010101010101010101010101010",
+    "pairing": "common-random-numbers-v1",
+    "replication_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ]
+  },
+  "started_at_utc": "2026-08-14T06:15:56.442737Z",
+  "working_tree_dirty": false
+}

@@ -1,0 +1,33 @@
+{
+  "bundle_semantic_sha256": "0cd57c3b9155bcba6a3e58b26882620e24bd2c82aa1c9e9232a3b411fe666c04",
+  "checks": {
+    "bundle_and_complete_marker": "pass",
+    "common_random_number_pairing": "pass",
+    "experiment_manifest": "pass",
+    "plots_and_lineage": "pass",
+    "replication_rows_and_lineage": "pass",
+    "run_artifact_checksums": "pass",
+    "summary_and_lineage": "pass"
+  },
+  "code_revision": "6ef5c1dfdd773887060cf5af08c58de4cb4b8d96",
+  "counts": {
+    "estimates": 168,
+    "paired_comparisons": 112,
+    "pairing_groups": 120,
+    "plots": 14,
+    "replication_rows": 5040,
+    "runs": 360
+  },
+  "digests": {
+    "plot_manifest_semantic_sha256": "b78e9cc153f22d2b6ad18d154a97811cfefddce46033367066333014e7fae447",
+    "replication_dataset_file_sha256": "884211bd4ea3575d68e8c644ad89a486ccb44980faa7e8ac9b57c1a50a76db90",
+    "replication_dataset_semantic_sha256": "6fe35f1994e96643a2670079b6576cd916065716b6eddc103eafb3e907c0a850",
+    "summary_file_sha256": "34a6560f595be317067b2a01bbe71b27d28cc3bb4be5bd8aa2c847bc23d9c590",
+    "summary_semantic_sha256": "224cf3ec8dcc4d09b5465dbe8bf0d19f51d0539d041facf459b62c28e5921c87"
+  },
+  "experiment_id": "scheduler-performance-study",
+  "experiment_sha256": "8ecf900823379132b45bfc574bbbbad76381c8e81fa949baf1a8a3792430a563",
+  "schema_version": "1.0",
+  "status": "pass",
+  "working_tree_dirty": false
+}

@@ -1,0 +1,19 @@
+schema_version: "1.0"
+capability: experiment-orchestration-and-statistics
+requirements_source: docs/requirements/system-requirements.md
+entries:
+  - requirements: [EXP-001, EXP-005, EXP-006, EXP-012]
+    implementation: [src/nr_ran_sim/experiments/config.py, schemas/experiment.schema.json, examples/experiments/scheduler-comparison-smoke.yaml, examples/experiments/scheduler-comparison-study.yaml]
+    tests: [tests/unit/test_experiment_config_statistics.py, tests/integration/test_repository_contract.py]
+  - requirements: [EXP-002, EXP-003, EXP-004, EXP-007]
+    implementation: [src/nr_ran_sim/experiments/seeds.py, src/nr_ran_sim/experiments/orchestration.py, src/nr_ran_sim/experiments/simulation.py, src/nr_ran_sim/experiments/dynamic_simulation.py]
+    tests: [tests/integration/test_experiment_framework.py, tests/unit/test_seeds.py]
+  - requirements: [EXP-008, EXP-011, OPS-007]
+    implementation: [src/nr_ran_sim/experiments/orchestration.py]
+    tests: [tests/integration/test_experiment_framework.py]
+  - requirements: [KPI-011, KPI-012, EXP-009]
+    implementation: [src/nr_ran_sim/experiments/statistics.py]
+    tests: [tests/unit/test_experiment_config_statistics.py, tests/integration/test_experiment_framework.py]
+  - requirements: [EXP-010]
+    implementation: [src/nr_ran_sim/reporting/svg.py]
+    tests: [tests/integration/test_experiment_framework.py]
